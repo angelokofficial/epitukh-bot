@@ -2,7 +2,7 @@ console.log('Loading frameworks...')
 var TelegramBot = require('node-telegram-bot-api');
 console.log('\nWelcome back, angelok.js! :)\n');
 
-var token = '';
+var token = '362861850:AAFiEvBTSTqL_XP6SqE4n2peO74vHh1E-9g';
 var bot = new TelegramBot(token, {polling: true});
 
 /*	bot.on('message', function (msg) { 
@@ -19,12 +19,10 @@ var bot = new TelegramBot(token, {polling: true});
 	form.chat_id = msg.chat.id;
 	form.text = 'Ебать ты ленивый хуй, но всё же я бот, который должен подчиняться всем. В любом случае, я за тебя залез в Google, держи ссылку:\n\n' + 'http://www.google.ru/search?q=' + resp.replace(/ /ig, '+');
 	form.disable_web_page_preview = 'true';
-        form.reply_to_message_id = msg.message_id;
-    	bot._request('sendMessage', { form });
+    form.reply_to_message_id = msg.message_id;
+    bot._request('sendMessage', { form });
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-});
-
-	bot.onText(/\Загугли (.+)/, function (msg, match) {
+}); bot.onText(/\Загугли (.+)/, function (msg, match) {
 	var resp = match[1];
 	var chatid = msg.chat.id;
 	var msgtext = msg.text;
@@ -36,9 +34,7 @@ var bot = new TelegramBot(token, {polling: true});
 	form.reply_to_message_id = msg.message_id;
     	bot._request('sendMessage', { form });
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-});
-
-	bot.onText(/\загугли (.+)/, function (msg, match) {
+}); bot.onText(/\загугли (.+)/, function (msg, match) {
 	var resp = match[1];
 	var chatid = msg.chat.id;
 	var msgtext = msg.text;
@@ -53,7 +49,7 @@ var bot = new TelegramBot(token, {polling: true});
 });
 
 	bot.onText(/\/debug/, function (msg) {
-		console.log('*****************\nАйди чата: ' + msg.chat.id + '\nАйди пользователя: ' + msg.from.id + '\n*****************');
+		console.log('-------------\nchat_id: ' + msg.chat.id + '\from_id: ' + msg.from.id + '\n-------------');
 		bot.sendMessage(msg.chat.id, 'check your debugger');
 });
 
@@ -179,30 +175,20 @@ var bot = new TelegramBot(token, {polling: true});
 
 // Инлайн запрос
 
-bot.on('inline_query', function(msg)
-{
-    var q_id = msg.id;
-    var q_query = msg.query;
-//  var q_from = msg.from;
-//  var q_offset = msg.offset;
+bot.on('inline_query', function (msg) {
+if (msg.query.length>2) {
+  var r = {};
+  r.type = 'article';
+  r.id = '1';
+  r.title = 'текст 1 меню';
+  r.message_text = 'сообщение 1';
+  
+  var f = {};
+  f.inline_query_id = msg.id;
+  f.results = JSON.stringify([r]);
 
-    var results = [];
-
-    for (var i = 0; i < 10; ++i) {
-	var InputTextMessageContent = {
-	'message_text': '_Test 1_',
-	'parse_mode': 'Markdown'
-        };
-        results.push(InputTextMessageContent);
-    }
-
-    bot.answerInlineQuery(q_id, results);
-});
-
-bot.on('chosen_inline_result', function(msg)
-{
-    console.log('Chosen:' + msg);
-});
+  bot._request('answerInlineQuery', { f });
+}});
 
 
 // Служебный функционал
