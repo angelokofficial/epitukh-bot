@@ -2,7 +2,7 @@ console.log('Loading frameworks...')
 var TelegramBot = require('node-telegram-bot-api');
 console.log('\nWelcome back, angelok.js! :)\n');
 
-var token = '362861850:AAFiEvBTSTqL_XP6SqE4n2peO74vHh1E-9g';
+var token = '';
 var bot = new TelegramBot(token, {polling: true});
 
 /*	bot.on('message', function (msg) { 
@@ -50,7 +50,7 @@ var bot = new TelegramBot(token, {polling: true});
 
 	bot.onText(/\/debug/, function (msg) {
 		console.log('-------------\nchat_id: ' + msg.chat.id + '\from_id: ' + msg.from.id + '\n-------------');
-		bot.sendMessage(msg.chat.id, 'check your debugger');
+		bot.sendMessage(msg.chat.id, 'debug');
 });
 
 	bot.onText(/\/start/, function (msg) {
@@ -60,7 +60,7 @@ var bot = new TelegramBot(token, {polling: true});
 	bot.onText(/\/cmds/, function (msg) {
 	var userid = msg.from.id;
 	var chatid = msg.chat.id;
-	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\nПрикажи Егору тебе что-нибудь загуглить. Используй "загугли (запрос)", или /g (запрос).\n/angelok_gay — Ангелок гей или нет?\n/shatni — шатает Ангелка\nили /angelok (ваше сообщение) — шатает Ангелка, используя ваше сообщение\nРаботает ответ на луны/светлые луны/солнышко + ответ с "больной ублюдок"\n/user (юзернейм_без_собачки) (текст) — шатает указанного юзера с вашим сообщением.\n\n/admin — админские штуки (просьба не тыкать)\n\nПредложить функционал можно тут: @vk2pda, @angelokofficial.';
+	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/g, загугли — гуглопоиск\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n';
 	if (msg.chat.id == -1001102571478) {
 		bot.sendMessage(-1001102571478, msg.from.first_name + ', я скинул список тебе в лс. Если что, меня перенесли на новый аккаунт (@epitukh_bot), и если ты не получил от меня сообщения, напиши мне и введи команду там.');
 		bot.sendMessage(userid, msgtext);
@@ -173,22 +173,11 @@ var bot = new TelegramBot(token, {polling: true});
 		console.log ('Не удалось выполнить команду у ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
-// Инлайн запрос
-
-bot.on('inline_query', function (msg) {
-if (msg.query.length>2) {
-  var r = {};
-  r.type = 'article';
-  r.id = '1';
-  r.title = 'текст 1 меню';
-  r.message_text = 'сообщение 1';
-  
-  var f = {};
-  f.inline_query_id = msg.id;
-  f.results = JSON.stringify([r]);
-
-  bot._request('answerInlineQuery', { f });
-}});
+	bot.onText(/\/test/, function (msg) {
+	var chat = msg.chat.id;
+	var str = 'ᅠ_____                   _      ' + '\n' + '  / ____|                 | |     ' + '\n' + ' | |  __  ___   ___   __ _| | ___ ' + '\n' + ' | | |_ |/ _ \ / _ \ / _ | |/ _ \'' + '\n' + ' | |__| | (_) | (_) | (_) | | |  __/' + '\n' + '  \_____|\___/ \___/ \__ |_|\___|' + '\n' + '                      __/ |       ' + '\n' '                     |___/';
+	bot.sendMessage(chat, str);
+	});
 
 
 // Служебный функционал
