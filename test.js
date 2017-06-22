@@ -49,7 +49,7 @@ var bot = new TelegramBot(token, {polling: true});
 });
 
 	bot.onText(/\/debug/, function (msg) {
-		console.log('-------------\nchat_id: ' + msg.chat.id + '\from_id: ' + msg.from.id + '\n-------------');
+		console.log('chat_id: ' + msg.chat.id + 'from_id: ' + msg.from.id');
 		bot.sendMessage(msg.chat.id, 'debug');
 });
 
