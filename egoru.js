@@ -49,7 +49,7 @@ var bot = new TelegramBot(token, {polling: true});
 });
 
 	bot.onText(/\/debug/, function (msg) {
-		console.log('chat_id: ' + msg.chat.id + 'from_id: ' + msg.from.id');
+		console.log('chat_id: ' + msg.chat.id + 'from_id: ' + msg.from.id);
 		bot.sendMessage(msg.chat.id, 'debug');
 });
 
@@ -60,7 +60,7 @@ var bot = new TelegramBot(token, {polling: true});
 	bot.onText(/\/cmds/, function (msg) {
 	var userid = msg.from.id;
 	var chatid = msg.chat.id;
-	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/g, загугли — гуглопоиск\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n';
+	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/g, загугли, /google — гуглопоиск\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n//angelok - шатает ангелка с вашим сообщением\n/all - шатает всех';
 	if (msg.chat.id == -1001102571478) {
 		bot.sendMessage(-1001102571478, msg.from.first_name + ', я скинул список тебе в лс. Если что, меня перенесли на новый аккаунт (@epitukh_bot), и если ты не получил от меня сообщения, напиши мне и введи команду там.');
 		bot.sendMessage(userid, msgtext);
