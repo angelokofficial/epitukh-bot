@@ -173,12 +173,14 @@ var bot = new TelegramBot(token, {polling: true});
 		console.log ('Не удалось выполнить команду у ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
-	bot.onText(/\/test/, function (msg) {
-	var chat = msg.chat.id;
-	var str = 'ᅠ_____                   _      ' + '\n' + '  / ____|                 | |     ' + '\n' + ' | |  __  ___   ___   __ _| | ___ ' + '\n' + ' | | |_ |/ _ \ / _ \ / _ | |/ _ \'' + '\n' + ' | |__| | (_) | (_) | (_) | | |  __/' + '\n' + '  \_____|\___/ \___/ \__ |_|\___|' + '\n' + '                      __/ |       ' + '\n' '                     |___/';
-	bot.sendMessage(chat, str);
-	});
-
+	bot.onText(/\/all/, function (msg) {
+	var chatid = msg.chat.id;
+	var ipc = -1001102571478;
+	if (msg.chat.id == ipc) {
+		bot.sendMessage(ipc, 'Эй, пидоры: @angelokofficial @veselcraft @KosBeg @voidnull @EgoruOff @Leckk @Sominemo @Infernituum @fscty @gershik @spaaaaacefan @reloadingfoxofficial @unknwn404 @SoulOfDefend @Undertale_2K17 @EnzoExotias @augustreinhardt @Psixoz_Yeah @veletrif @m_martynenko @plkvich691, вы где тут?');
+	} else {
+		bot.sendMessage(chatid, 'Команда работает только в IPC.');
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 
 // Служебный функционал
 
