@@ -181,6 +181,7 @@ var bot = new TelegramBot(token, {polling: true});
 	} else {
 		bot.sendMessage(chatid, 'Команда работает только в IPC.');
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+}});
 
 // Служебный функционал
 
