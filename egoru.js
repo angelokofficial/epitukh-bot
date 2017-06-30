@@ -19,12 +19,10 @@ var bot = new TelegramBot(token, {polling: true});
 	form.chat_id = msg.chat.id;
 	form.text = 'Ебать ты ленивый хуй, но всё же я бот, который должен подчиняться всем. В любом случае, я за тебя залез в Google, держи ссылку:\n\n' + 'http://www.google.ru/search?q=' + resp.replace(/ /ig, '+');
 	form.disable_web_page_preview = 'true';
-        form.reply_to_message_id = msg.message_id;
-    	bot._request('sendMessage', { form });
+    form.reply_to_message_id = msg.message_id;
+    bot._request('sendMessage', { form });
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-});
-
-	bot.onText(/\Загугли (.+)/, function (msg, match) {
+}); bot.onText(/\Загугли (.+)/, function (msg, match) {
 	var resp = match[1];
 	var chatid = msg.chat.id;
 	var msgtext = msg.text;
@@ -36,9 +34,7 @@ var bot = new TelegramBot(token, {polling: true});
 	form.reply_to_message_id = msg.message_id;
     	bot._request('sendMessage', { form });
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-});
-
-	bot.onText(/\загугли (.+)/, function (msg, match) {
+}); bot.onText(/\загугли (.+)/, function (msg, match) {
 	var resp = match[1];
 	var chatid = msg.chat.id;
 	var msgtext = msg.text;
@@ -53,8 +49,8 @@ var bot = new TelegramBot(token, {polling: true});
 });
 
 	bot.onText(/\/debug/, function (msg) {
-		console.log('*****************\nАйди чата: ' + msg.chat.id + '\nАйди пользователя: ' + msg.from.id + '\n*****************');
-		bot.sendMessage(msg.chat.id, 'check your debugger');
+		console.log('chat_id: ' + msg.chat.id + 'from_id: ' + msg.from.id');
+		bot.sendMessage(msg.chat.id, 'debug');
 });
 
 	bot.onText(/\/start/, function (msg) {
@@ -64,7 +60,7 @@ var bot = new TelegramBot(token, {polling: true});
 	bot.onText(/\/cmds/, function (msg) {
 	var userid = msg.from.id;
 	var chatid = msg.chat.id;
-	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\nПрикажи Егору тебе что-нибудь загуглить. Используй "загугли (запрос)", или /g (запрос).\n/angelok_gay — Ангелок гей или нет?\n/shatni — шатает Ангелка\nили /angelok (ваше сообщение) — шатает Ангелка, используя ваше сообщение\nРаботает ответ на луны/светлые луны/солнышко + ответ с "больной ублюдок"\n/user (юзернейм_без_собачки) (текст) — шатает указанного юзера с вашим сообщением.\n\n/admin — админские штуки (просьба не тыкать)\n\nПредложить функционал можно тут: @vk2pda, @angelokofficial.';
+	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/g, загугли — гуглопоиск\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n';
 	if (msg.chat.id == -1001102571478) {
 		bot.sendMessage(-1001102571478, msg.from.first_name + ', я скинул список тебе в лс. Если что, меня перенесли на новый аккаунт (@epitukh_bot), и если ты не получил от меня сообщения, напиши мне и введи команду там.');
 		bot.sendMessage(userid, msgtext);
@@ -177,33 +173,15 @@ var bot = new TelegramBot(token, {polling: true});
 		console.log ('Не удалось выполнить команду у ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
-// Инлайн запрос
-
-bot.on('inline_query', function(msg)
-{
-    var q_id = msg.id;
-    var q_query = msg.query;
-//  var q_from = msg.from;
-//  var q_offset = msg.offset;
-
-    var results = [];
-
-    for (var i = 0; i < 10; ++i) {
-	var InputTextMessageContent = {
-	'message_text': '_Test 1_',
-	'parse_mode': 'Markdown'
-        };
-        results.push(InputTextMessageContent);
-    }
-
-    bot.answerInlineQuery(q_id, results);
-});
-
-bot.on('chosen_inline_result', function(msg)
-{
-    console.log('Chosen:' + msg);
-});
-
+	bot.onText(/\/all/, function (msg) {
+	var chatid = msg.chat.id;
+	var ipc = -1001102571478;
+	if (msg.chat.id == ipc) {
+		bot.sendMessage(ipc, 'Эй, пидоры: @angelokofficial @veselcraft @KosBeg @voidnull @EgoruOff @Leckk @Sominemo @Infernituum @fscty @gershik @spaaaaacefan @reloadingfoxofficial @unknwn404 @SoulOfDefend @Undertale_2K17 @EnzoExotias @augustreinhardt @Psixoz_Yeah @veletrif @m_martynenko @plkvich691, вы где тут?');
+	} else {
+		bot.sendMessage(chatid, 'Команда работает только в IPC.');
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+}});
 
 // Служебный функционал
 
