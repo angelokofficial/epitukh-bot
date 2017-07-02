@@ -49,7 +49,7 @@ var bot = new TelegramBot(token, {polling: true});
 });
 
 	bot.onText(/\/debug/, function (msg) {
-		console.log('chat_id: ' + msg.chat.id + 'from_id: ' + msg.from.id');
+		console.log('chat_id: ' + msg.chat.id + 'from_id: ' + msg.from.id);
 		bot.sendMessage(msg.chat.id, 'debug');
 });
 
@@ -182,6 +182,25 @@ var bot = new TelegramBot(token, {polling: true});
 		bot.sendMessage(chatid, 'Команда работает только в IPC.');
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
+
+	bot.onText(/\/time/, function (msg) {
+	var chatid = msg.chat.id;
+	var date = new Date();
+	var d = date.getDate();
+	if (d < 10) d = '0' + d;
+	var m = date.getMonth() + 1;
+	if (m < 10) m = '0' + m;
+	var y = date.getFullYear() % 100;
+	if (y < 10) y = '0' + y;
+	var h = date.getHours();
+	if (h < 10) h = '0' + h;
+	var n = date.getMinutes();
+	if (n < 10) n = '0' + n;  
+	var s = date.getSeconds();
+	if (s < 10) s = '0' + s;
+	var ms = date.getMilliseconds();
+	bot.sendMessage(chatid, 'Сейчас' d+'.' +m+'.'+y+' '+h+':'+n + '🌚');
+});
 
 // Служебный функционал
 
