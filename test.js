@@ -49,7 +49,7 @@ var bot = new TelegramBot(token, {polling: true});
 });
 
 	bot.onText(/\/debug/, function (msg) {
-		console.log('chat_id: ' + msg.chat.id + 'from_id: ' + msg.from.id);
+		console.log('chat_id: ' + msg.chat.id + '\nfrom_id: ' + msg.from.id + '\n');
 		bot.sendMessage(msg.chat.id, 'debug');
 });
 
@@ -110,22 +110,24 @@ var bot = new TelegramBot(token, {polling: true});
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
-	bot.onText(/\🌚/, function (msg) { //moon
+	bot.onText(/\🌚🌚🌚🌚🌚🌚/, function (msg) { //moon
 	var bolnoiUbludok = '🌚 🌚 🌚 больной ублюдок 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝';
 	var form = {};
-	if (msg.text.length > 10) { 
-		form.chat_id = msg.chat.id;
-		form.reply_to_message_id = msg.message_id;
-		form.text = bolnoiUbludok;
-		bot._request('sendMessage', { form });
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	} else { 
-		form.chat_id = msg.chat.id;
-                form.reply_to_message_id = msg.message_id;
-                form.text = '🌚';
-                bot._request('sendMessage', { form });
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-}});
+	form.chat_id = msg.chat.id;
+	form.reply_to_message_id = msg.message_id;
+	form.text = bolnoiUbludok;
+	bot._request('sendMessage', { form });
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+});
+
+	bot.onText(/\🌚/, function (msg) { //moon
+	var form = {};
+	form.chat_id = msg.chat.id;
+	form.reply_to_message_id = msg.message_id;
+	form.text = bolnoiUbludok;
+	bot._request('sendMessage', { form });
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+});
 
 	bot.onText(/\🌝/, function (msg) { //lightmoon
 	var bolnoiUbludok = '🌝 🌝 🌝 больной ублюдок 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚';
@@ -201,6 +203,7 @@ var bot = new TelegramBot(token, {polling: true});
 	var ms = date.getMilliseconds();
 	bot.sendMessage(chatid, 'Сейчас' + d + '.' + m + '.' + y + ' ' + h + ':' + n + '🌚');
 });
+
 
 // Служебный функционал
 
