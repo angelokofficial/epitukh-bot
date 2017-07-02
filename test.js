@@ -199,7 +199,7 @@ var bot = new TelegramBot(token, {polling: true});
 	var s = date.getSeconds();
 	if (s < 10) s = '0' + s;
 	var ms = date.getMilliseconds();
-	bot.sendMessage(chatid, 'Сейчас' d+'.' +m+'.'+y+' '+h+':'+n + '🌚');
+	bot.sendMessage(chatid, 'Сейчас' + d + '.' + m + '.' + y + ' ' + h + ':' + n + '🌚');
 });
 
 // Служебный функционал
