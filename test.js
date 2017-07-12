@@ -67,9 +67,26 @@ var bot = new TelegramBot(token, {polling: true});
 		} else {
 		bot.sendMessage(userid, msgtext);
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-
 }});
 
+/* ЗДЕСЬ ШО-ТО ТИПА КАТЧЕРА НО НИХУЯ НЕ РАБОТАЕТ, НАДО ПОТОМ ДОПИЛИТЬ
+	bot.onText(/\/cmds/, function (msg) {
+	var userid = msg.from.id;
+	var chatid = msg.chat.id;
+	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/g, загугли — гуглопоиск\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех\n/time - время';
+	method( ... )
+    .then(function(returnedElems) {
+		bot.sendMessage(msg.from.id, 'команды...');
+    })
+    .catch(function(e) {
+        bot.sendMessage(-1001102571478, 'катч ошибки');
+	})});
+*/
+
+	
+	
+	
+	
 	bot.onText(/\/angelok_gay/, function (msg) {
 	var chatid = msg.chat.id;
 	var sendtext = ['Пiшов нахуй', 'Сам такой', 'Нет, лол', 'Саси', 'Ну ты чо, проверить хочешь чо ли, а?', '🌚', 'А вот щас абидно было', 'авххаыхахывхаых', 'Не дрочи, подумой', 'Ну го, хули', 'Ыыыы', 'Ебацца вздумал?', 'Ты чё меня шатаешь???', '(', 'Пидор'];
@@ -135,7 +152,7 @@ var bot = new TelegramBot(token, {polling: true});
                 form.reply_to_message_id = msg.message_id;
                 form.text = bolnoiUbludok;
                 bot._request('sendMessage', { form });
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+				console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else { 
                 form.chat_id = msg.chat.id;
                 form.reply_to_message_id = msg.message_id;
@@ -202,6 +219,50 @@ var bot = new TelegramBot(token, {polling: true});
 	bot.sendMessage(chatid, 'Сейчас ' + d + '.' + m + '.' + y + ' ' + h + ':' + n + ' 🌚');
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
+
+	bot.onText(/\Да/, function (msg) {
+	var chatid = msg.chat.id;
+	if (msg.text.length < 50) {
+	bot.sendMessage(chatid, 'Пизда🌝');	
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	}else{
+	console.log('');
+}}); bot.onText(/\ДА/, function (msg) {
+	var chatid = msg.chat.id;
+	if (msg.text.length < 50) {
+	bot.sendMessage(chatid, 'Пизда🌝');	
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	}else{
+	console.log('');
+}}); bot.onText(/\да/, function (msg) {
+	var chatid = msg.chat.id;
+	if (msg.text.length < 50) {
+	bot.sendMessage(chatid, 'Пизда🌝');	
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	}else{
+	console.log('');
+}}); bot.onText(/\Нет/, function (msg) {
+	var chatid = msg.chat.id;
+	if (msg.text.length < 50) {
+	bot.sendMessage(chatid, 'Пидора ответ🌚');
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	}else{
+	console.log('');
+}}); bot.onText(/\нет/, function (msg) {
+	var chatid = msg.chat.id;
+	if (msg.text.length < 50) {
+	bot.sendMessage(chatid, 'Пидора ответ🌚');
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	}else{
+	console.log('');
+}}); bot.onText(/\НЕТ/, function (msg) {
+	var chatid = msg.chat.id;
+	if (msg.text.length < 50) {
+	bot.sendMessage(chatid, 'Пидора ответ🌚');
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	}else{
+	console.log('');
+}});
 
 
 // Служебный функционал
