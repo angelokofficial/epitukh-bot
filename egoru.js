@@ -58,7 +58,7 @@ var bot = new TelegramBot(token, {polling: true});
 });
 
 	bot.onText(/\/cmds/, function (msg) {
-	var userid = msg.from.id;
+	var userid = msg.from.id; 
 	var chatid = msg.chat.id;
 	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/g, загугли, /google — гуглопоиск\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n//angelok - шатает ангелка с вашим сообщением\n/all - шатает всех';
 	if (msg.chat.id == -1001102571478) {
