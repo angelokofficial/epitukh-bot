@@ -220,50 +220,27 @@ var bot = new TelegramBot(token, {polling: true});
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
 
-	bot.onText(/\Да/, function (msg) {
+	bot.on('message', function (msg) {
 	var chatid = msg.chat.id;
-	if (msg.text.length < 50) {
-	bot.sendMessage(chatid, 'Пизда🌝');	
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	}else{
-	console.log('');
-}}); bot.onText(/\ДА/, function (msg) {
-	var chatid = msg.chat.id;
-	if (msg.text.length < 50) {
-	bot.sendMessage(chatid, 'Пизда🌝');	
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	}else{
-	console.log('');
-}}); bot.onText(/\да/, function (msg) {
-	var chatid = msg.chat.id;
-	if (msg.text.length < 50) {
-	bot.sendMessage(chatid, 'Пизда🌝');	
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	}else{
-	console.log('');
-}}); bot.onText(/\Нет/, function (msg) {
-	var chatid = msg.chat.id;
-	if (msg.text.length < 50) {
-	bot.sendMessage(chatid, 'Пидора ответ🌚');
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	}else{
-	console.log('');
-}}); bot.onText(/\нет/, function (msg) {
-	var chatid = msg.chat.id;
-	if (msg.text.length < 50) {
-	bot.sendMessage(chatid, 'Пидора ответ🌚');
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	}else{
-	console.log('');
-}}); bot.onText(/\НЕТ/, function (msg) {
-	var chatid = msg.chat.id;
-	if (msg.text.length < 50) {
-	bot.sendMessage(chatid, 'Пидора ответ🌚');
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	}else{
-	console.log('');
+	var yes = 'Да';
+	var yesCaps = 'ДА';
+	var yesLower = 'да';
+	var no = 'Нет';
+	var noCaps = 'НЕТ';
+	var noLower = 'нет';
+	if (msg.text == yes) {
+		bot.sendMessage(chatid, "Пизда🌝");
+	} else if (msg.text == no) {
+		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id});   
+	} else if (msg.text == yesCaps) {
+		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
+	} else if (msg.text == noCaps) {
+		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id}); 
+	} else if (msg.text == noLower) {
+		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id}); 
+	} else if (msg.text == yesLower) {
+		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
 }});
-
 
 // Служебный функционал
 
