@@ -54,7 +54,7 @@ var bot = new TelegramBot(token, {polling: true});
 });
 
 	bot.onText(/\/start/, function (msg) {
-	bot.sendMessage(msg.chat.id, 'Hello World!');
+	bot.sendMessage(msg.chat.id, 'Hello World!'); 
 });
 
 	bot.onText(/\/cmds/, function (msg) {
