@@ -249,7 +249,7 @@ var bot = new TelegramBot(token, {polling: true});
 	bot.onText(/\/new_search/, function (msg, match) {
 	var chatid = msg.chat.id;
 	var resp = match[1];
-	"https://www.googleapis.com/customsearch/v1?" + (match[1] ? "searchType=image&" : "") + "key= AIzaSyAwgp0DGglAG6wI1MNWo5cSP0R-TZ7p-zc" + token.google.search + "&cx=" + token.google.cx + "&q=" + encodeURIComponent(params[2])
+	"https://www.googleapis.com/customsearch/v1?" + (match[1] ? "searchType=image&" : "") + "key=" + token.google.search + "&cx=" + token.google.cx + "&q=" + encodeURIComponent(params[2])
 	ress.items.map(function (r) { 
       bot.sendMessage(chatid, "\n" + r.title); 
       bot.sendMessage(chatid, "\n" + decodeURIComponent(r.link) + "\n"); 
