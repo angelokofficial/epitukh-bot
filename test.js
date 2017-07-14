@@ -5,11 +5,23 @@ console.log('\nWelcome back, angelok.js! :)\n');
 var token = '';
 var bot = new TelegramBot(token, {polling: true});
 
-/*	bot.on('message', function (msg) { 
-
-
-});
-*/
+	// екзекутор javascrpit кода
+	bot.onText(/\/eval (.+)/, (msg, match) => {
+	var res = "";
+	var chatid = msg.chat.id;
+	var userid = msg.from.id;
+	var angelok = 148477866;
+	if (userid == angelok) {
+		try {
+		res = eval(match[1]);
+		} catch(e) {
+		res = "Ошибка " + e;
+}
+		bot.sendMessage(chatid, res);
+	} else {
+		bot.sendMessage(chatid, 'У вас нет доступа к этой команде.');	
+}});
+	
 	bot.onText(/\/g (.+)/, function (msg, match) {
 	var resp = match[1];
 	var chatid = msg.chat.id;
@@ -32,7 +44,7 @@ var bot = new TelegramBot(token, {polling: true});
 	form.text = 'Ебать ты ленивый хуй, но всё же я бот, который должен подчиняться всем. В любом случае, я за тебя залез в Google, держи ссылку:\n\n' + 'http://www.google.ru/search?q=' + resp.replace(/ /ig, '+');
 	form.disable_web_page_preview = 'true';
 	form.reply_to_message_id = msg.message_id;
-    	bot._request('sendMessage', { form });
+    bot._request('sendMessage', { form });
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }); bot.onText(/\загугли (.+)/, function (msg, match) {
 	var resp = match[1];
@@ -44,7 +56,7 @@ var bot = new TelegramBot(token, {polling: true});
 	form.text = 'Ебать ты ленивый хуй, но всё же я бот, который должен подчиняться всем. В любом случае, я за тебя залез в Google, держи ссылку:\n\n' + 'http://www.google.ru/search?q=' + resp.replace(/ /ig, '+');
 	form.disable_web_page_preview = 'true';
 	form.reply_to_message_id = msg.message_id;
-        bot._request('sendMessage', { form });
+    bot._request('sendMessage', { form });
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
 
@@ -60,32 +72,15 @@ var bot = new TelegramBot(token, {polling: true});
 	bot.onText(/\/cmds/, function (msg) {
 	var userid = msg.from.id;
 	var chatid = msg.chat.id;
+	var ipc = -1001102571478;
 	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/g, загугли — гуглопоиск\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех\n/time - время';
-	if (msg.chat.id == -1001102571478) {
-		bot.sendMessage(-1001102571478, msg.from.first_name + ', я скинул список тебе в лс. Если что, меня перенесли на новый аккаунт (@epitukh_bot), и если ты не получил от меня сообщения, напиши мне и введи команду там.');
+	if (chatid == ipc) {
+		bot.sendMessage(ipc, 'Пробую тебе скинуть...',{reply_to_message_id : msg.message_id}); 
+			bot.sendMessage(userid, msgtext).catch(function(error) {
+				bot.sendMessage(chatid, 'Ты должен написать мне первым, чтобы я мог писать потом тебе.'); })		
+	} else {
 		bot.sendMessage(userid, msgtext);
-		} else {
-		bot.sendMessage(userid, msgtext);
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
-
-/* ЗДЕСЬ ШО-ТО ТИПА КАТЧЕРА НО НИХУЯ НЕ РАБОТАЕТ, НАДО ПОТОМ ДОПИЛИТЬ
-	bot.onText(/\/cmds/, function (msg) {
-	var userid = msg.from.id;
-	var chatid = msg.chat.id;
-	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/g, загугли — гуглопоиск\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех\n/time - время';
-	method( ... )
-    .then(function(returnedElems) {
-		bot.sendMessage(msg.from.id, 'команды...');
-    })
-    .catch(function(e) {
-        bot.sendMessage(-1001102571478, 'катч ошибки');
-	})});
-*/
-
-	
-	
-	
 	
 	bot.onText(/\/angelok_gay/, function (msg) {
 	var chatid = msg.chat.id;
@@ -241,6 +236,26 @@ var bot = new TelegramBot(token, {polling: true});
 	} else if (msg.text == yesLower) {
 		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
 }});
+
+	bot.onText(/\/test/, function (msg) {
+	var chatid = msg.chat.id;
+	var users = ['angelokofficial', 'voidnull', 'spaaaaacefan', 'WPSTUDIOofficial', 'gershik', 'windows10iso', 'KosBeg', 'zhalka', 'EgoruOff', 'Leckk', 'SoulOfDefend', 'reloadingfoxofficial', 'svitty177', 'ZaMIk', 'VictorDir', 'Lyubimych', 'Sominemo', 'unknwn404', 'Psixoz_Yeah', 'fscty', 'plkvich691'];
+	bot.sendMessage(chatid, ('Машины выехали! Система взломана...'));
+	setTimeout(function() { bot.sendMessage(chatid, ('Сканирую...')) ; }, 2000);
+	setTimeout(function() { bot.sendMessage(chatid, ('КЕК!')) ; }, 5000);
+	setTimeout(function() { bot.sendMessage(chatid, ('Ну ты и кодер — @angelokofficial')) ; }, 7300);
+	});
+	
+	bot.onText(/\/new_search/, function (msg, match) {
+	var chatid = msg.chat.id;
+	var resp = match[1];
+	"https://www.googleapis.com/customsearch/v1?" + (match[1] ? "searchType=image&" : "") + "key= AIzaSyAwgp0DGglAG6wI1MNWo5cSP0R-TZ7p-zc" + token.google.search + "&cx=" + token.google.cx + "&q=" + encodeURIComponent(params[2])
+	ress.items.map(function (r) { 
+      bot.sendMessage(chatid, "\n" + r.title); 
+      bot.sendMessage(chatid, "\n" + decodeURIComponent(r.link) + "\n"); 
+})});
+
+
 
 // Служебный функционал
 
