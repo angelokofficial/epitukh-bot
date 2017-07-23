@@ -1,11 +1,12 @@
 console.log('Loading frameworks...')
 var TelegramBot = require('node-telegram-bot-api');
+var replace = require('replace');
 console.log('\nWelcome back, angelok.js! :)\n');
 
 var token = '';
 var bot = new TelegramBot(token, {polling: true});
 
-	// екзекутор javascrpit кода
+/*	// екзекутор javascrpit кода
 	bot.onText(/\/eval (.+)/, (msg, match) => {
 	var res = "";
 	var chatid = msg.chat.id;
@@ -20,7 +21,62 @@ var bot = new TelegramBot(token, {polling: true});
 		bot.sendMessage(chatid, res);
 	} else {
 		bot.sendMessage(chatid, 'У вас нет доступа к этой команде.');	
+}}); */
+	
+	bot.onText(/\@angelokofficial/, function (msg) {
+	var chatid = msg.chat.id;
+	bot.sendMessage(chatid, 'Анус себе шатни, ' + '@' + msg.from.username ,{reply_to_message_id : msg.message_id}); 
+});
+
+	bot.on('message', function (msg) {
+	var chatid = msg.chat.id;
+	var bolnoiUbludok = '🌚 🌚 🌚 больной ублюдок 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝';
+	var moons = ['🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚'];
+	if (msg.text == '🌚') {
+		bot.sendMessage(chatid, '🌚',{reply_to_message_id : msg.message_id}); 
+	} else if (msg.text == '🌚🌚') {
+		bot.sendMessage(chatid, '🌚🌚',{reply_to_message_id : msg.message_id}); 
+	} else if (msg.text == '🌚🌚🌚') {
+		bot.sendMessage(chatid, '🌚🌚🌚',{reply_to_message_id : msg.message_id}); 
+	} else if (msg.text == '🌚🌚🌚🌚') {
+		bot.sendMessage(chatid, '🌚🌚🌚🌚',{reply_to_message_id : msg.message_id}); 
+	} else if (msg.text == '🌚🌚🌚🌚🌚') {
+		bot.sendMessage(chatid, '🌚🌚🌚🌚🌚',{reply_to_message_id : msg.message_id}); 
+	} else if (msg.text == '🌝') {
+		bot.sendMessage(chatid, '🌝',{reply_to_message_id : msg.message_id});
+	} else if (msg.text == '🌝🌝') {
+		bot.sendMessage(chatid, '🌝🌝',{reply_to_message_id : msg.message_id});
+	} else if (msg.text == '🌝🌝🌝') {
+		bot.sendMessage(chatid, '🌝🌝🌝',{reply_to_message_id : msg.message_id});	
+	} else if (msg.text == '🌝🌝🌝🌝') {
+		bot.sendMessage(chatid, '🌝🌝🌝🌝',{reply_to_message_id : msg.message_id});		
+	} else if (msg.text == '🌝🌝🌝🌝🌝') {
+		bot.sendMessage(chatid, '🌝🌝🌝🌝🌝',{reply_to_message_id : msg.message_id});		
+	} else if (msg.text == '🌞') {
+		bot.sendMessage(chatid, '🌞',{reply_to_message_id : msg.message_id});
+	} else if (msg.text == '🌞🌞') {
+		bot.sendMessage(chatid, '🌞🌞',{reply_to_message_id : msg.message_id});
+	} else if (msg.text == '🌞🌞🌞') {
+		bot.sendMessage(chatid, '🌞🌞🌞',{reply_to_message_id : msg.message_id});	
+	} else if (msg.text == '🌞🌞🌞🌞') {
+		bot.sendMessage(chatid, '🌞🌞🌞🌞',{reply_to_message_id : msg.message_id});		
+	} else if (msg.text == '🌞🌞🌞🌞🌞') {
+		bot.sendMessage(chatid, '🌞🌞🌞🌞🌞',{reply_to_message_id : msg.message_id});	
 }});
+
+	bot.onText(/\🌚🌚🌚🌚🌚🌚/, function (msg) {
+	var chatid = msg.chat.id;
+	var bolnoiUbludokMoon = '🌚 🌚 🌚 больной ублюдок 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝';
+	bot.sendMessage(chatid, bolnoiUbludokMoon,{reply_to_message_id : msg.message_id}); 
+}); bot.onText(/\🌝🌝🌝🌝🌝🌝/, function (msg) {
+	var chatid = msg.chat.id;
+	var bolnoiUbludokLight = '🌝 🌝 🌝 больной ублюдок 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚';
+	bot.sendMessage(chatid, bolnoiUbludokLight,{reply_to_message_id : msg.message_id}); 
+}); bot.onText(/\🌞🌞🌞🌞🌞🌞/, function (msg) {
+	var chatid = msg.chat.id;
+	var bolnoiUbludokSun = '🌚 🌝 🌚 🌝 больной ублюдок 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞'; 
+	bot.sendMessage(chatid, bolnoiUbludokSun,{reply_to_message_id : msg.message_id}); 
+});
 	
 	bot.onText(/\/g (.+)/, function (msg, match) {
 	var resp = match[1];
@@ -76,8 +132,8 @@ var bot = new TelegramBot(token, {polling: true});
 	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/g, загугли — гуглопоиск\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех\n/time - время';
 	if (chatid == ipc) {
 		bot.sendMessage(ipc, 'Пробую тебе скинуть...',{reply_to_message_id : msg.message_id}); 
-			bot.sendMessage(userid, msgtext).catch(function(error) {
-				bot.sendMessage(chatid, 'Ты должен написать мне первым, чтобы я мог писать потом тебе.'); })		
+		bot.sendMessage(userid, msgtext).catch(function(error) {
+		bot.sendMessage(chatid, 'Ты должен написать мне первым, чтобы я мог писать потом тебе.'); })		
 	} else {
 		bot.sendMessage(userid, msgtext);
 }});
@@ -120,57 +176,6 @@ var bot = new TelegramBot(token, {polling: true});
 		} else {
 			bot.sendMessage(chatid, 'Команда работает только в IPC.');
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-}});
-
-	bot.onText(/\🌚/, function (msg) { //moon
-	var bolnoiUbludok = '🌚 🌚 🌚 больной ублюдок 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝';
-	var form = {};
-	if (msg.text.length > 10) { 
-		form.chat_id = msg.chat.id;
-		form.reply_to_message_id = msg.message_id;
-		form.text = bolnoiUbludok;
-		bot._request('sendMessage', { form });
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	} else { 
-		form.chat_id = msg.chat.id;
-                form.reply_to_message_id = msg.message_id;
-                form.text = '🌚';
-                bot._request('sendMessage', { form });
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-}});
-
-	bot.onText(/\🌝/, function (msg) { //lightmoon
-	var bolnoiUbludok = '🌝 🌝 🌝 больной ублюдок 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚';
-	var form = {};
-	if (msg.text.length > 10) { 
-		form.chat_id = msg.chat.id;
-                form.reply_to_message_id = msg.message_id;
-                form.text = bolnoiUbludok;
-                bot._request('sendMessage', { form });
-				console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	} else { 
-                form.chat_id = msg.chat.id;
-                form.reply_to_message_id = msg.message_id;
-                form.text = '🌝';
-                bot._request('sendMessage', { form });
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-}});
-
-	bot.onText(/\🌞/, function (msg) { //sun
-	var bolnoiUbludok = '🌚 🌚 🌚 больной ублюдок 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞';
-	var form = {};
-	if (msg.text.length > 10) { 
-                form.chat_id = msg.chat.id;
-                form.reply_to_message_id = msg.message_id;
-                form.text = bolnoiUbludok;
-                bot._request('sendMessage', { form });
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	} else { 
-                form.chat_id = msg.chat.id;
-                form.reply_to_message_id = msg.message_id;
-                form.text = '🌞';
-                bot._request('sendMessage', { form });
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
 	bot.onText(/\/user (.+)/, function (msg, match) {
@@ -224,7 +229,7 @@ var bot = new TelegramBot(token, {polling: true});
 	var noCaps = 'НЕТ';
 	var noLower = 'нет';
 	if (msg.text == yes) {
-		bot.sendMessage(chatid, "Пизда🌝");
+		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
 	} else if (msg.text == no) {
 		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id});   
 	} else if (msg.text == yesCaps) {
@@ -240,22 +245,27 @@ var bot = new TelegramBot(token, {polling: true});
 	bot.onText(/\/test/, function (msg) {
 	var chatid = msg.chat.id;
 	var users = ['angelokofficial', 'voidnull', 'spaaaaacefan', 'WPSTUDIOofficial', 'gershik', 'windows10iso', 'KosBeg', 'zhalka', 'EgoruOff', 'Leckk', 'SoulOfDefend', 'reloadingfoxofficial', 'svitty177', 'ZaMIk', 'VictorDir', 'Lyubimych', 'Sominemo', 'unknwn404', 'Psixoz_Yeah', 'fscty', 'plkvich691'];
+	var pidor = 'undefined';
+	var isSpin = 'no_spin';
+	var date = new Date();
+	var d = date.getDate();
+	if (d < 10) d = '0' + d;
+	var m = date.getMonth() + 1;
+	if (m < 10) m = '0' + m;
+	var y = date.getFullYear() % 100;
+	if (y < 10) y = '0' + y;
+	var h = date.getHours();
+	if (h < 10) h = '0' + h;
+	var n = date.getMinutes();
+	if (n < 10) n = '0' + n;  
+	var s = date.getSeconds();
+	if (s < 10) s = '0' + s;
+	var ms = date.getMilliseconds();
 	bot.sendMessage(chatid, ('Машины выехали! Система взломана...'));
 	setTimeout(function() { bot.sendMessage(chatid, ('Сканирую...')) ; }, 2000);
 	setTimeout(function() { bot.sendMessage(chatid, ('КЕК!')) ; }, 5000);
 	setTimeout(function() { bot.sendMessage(chatid, ('Ну ты и кодер — @angelokofficial')) ; }, 7300);
 	});
-	
-	bot.onText(/\/new_search/, function (msg, match) {
-	var chatid = msg.chat.id;
-	var resp = match[1];
-	"https://www.googleapis.com/customsearch/v1?" + (match[1] ? "searchType=image&" : "") + "key=" + token.google.search + "&cx=" + token.google.cx + "&q=" + encodeURIComponent(params[2])
-	ress.items.map(function (r) { 
-      bot.sendMessage(chatid, "\n" + r.title); 
-      bot.sendMessage(chatid, "\n" + decodeURIComponent(r.link) + "\n"); 
-})});
-
-
 
 // Служебный функционал
 
