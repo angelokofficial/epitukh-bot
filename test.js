@@ -26,6 +26,7 @@ var bot = new TelegramBot(token, {polling: true});
 	bot.onText(/\@angelokofficial/, function (msg) {
 	var chatid = msg.chat.id;
 	bot.sendMessage(chatid, 'Анус себе шатни, ' + '@' + msg.from.username ,{reply_to_message_id : msg.message_id}); 
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
 
 	bot.on('message', function (msg) {
@@ -34,48 +35,67 @@ var bot = new TelegramBot(token, {polling: true});
 	var moons = ['🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚', '🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚'];
 	if (msg.text == '🌚') {
 		bot.sendMessage(chatid, '🌚',{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌚🌚') {
 		bot.sendMessage(chatid, '🌚🌚',{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌚🌚🌚') {
-		bot.sendMessage(chatid, '🌚🌚🌚',{reply_to_message_id : msg.message_id}); 
+		bot.sendMessage(chatid, '🌚🌚🌚',{reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌚🌚🌚🌚') {
-		bot.sendMessage(chatid, '🌚🌚🌚🌚',{reply_to_message_id : msg.message_id}); 
+		bot.sendMessage(chatid, '🌚🌚🌚🌚',{reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌚🌚🌚🌚🌚') {
 		bot.sendMessage(chatid, '🌚🌚🌚🌚🌚',{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌝') {
 		bot.sendMessage(chatid, '🌝',{reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌝🌝') {
 		bot.sendMessage(chatid, '🌝🌝',{reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌝🌝🌝') {
 		bot.sendMessage(chatid, '🌝🌝🌝',{reply_to_message_id : msg.message_id});	
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌝🌝🌝🌝') {
-		bot.sendMessage(chatid, '🌝🌝🌝🌝',{reply_to_message_id : msg.message_id});		
+		bot.sendMessage(chatid, '🌝🌝🌝🌝',{reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌝🌝🌝🌝🌝') {
-		bot.sendMessage(chatid, '🌝🌝🌝🌝🌝',{reply_to_message_id : msg.message_id});		
+		bot.sendMessage(chatid, '🌝🌝🌝🌝🌝',{reply_to_message_id : msg.message_id});	
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌞') {
 		bot.sendMessage(chatid, '🌞',{reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌞🌞') {
 		bot.sendMessage(chatid, '🌞🌞',{reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌞🌞🌞') {
 		bot.sendMessage(chatid, '🌞🌞🌞',{reply_to_message_id : msg.message_id});	
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌞🌞🌞🌞') {
-		bot.sendMessage(chatid, '🌞🌞🌞🌞',{reply_to_message_id : msg.message_id});		
+		bot.sendMessage(chatid, '🌞🌞🌞🌞',{reply_to_message_id : msg.message_id});	
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '🌞🌞🌞🌞🌞') {
 		bot.sendMessage(chatid, '🌞🌞🌞🌞🌞',{reply_to_message_id : msg.message_id});	
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+		
 }});
 
 	bot.onText(/\🌚🌚🌚🌚🌚🌚/, function (msg) {
 	var chatid = msg.chat.id;
 	var bolnoiUbludokMoon = '🌚 🌚 🌚 больной ублюдок 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝 🌝';
 	bot.sendMessage(chatid, bolnoiUbludokMoon,{reply_to_message_id : msg.message_id}); 
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }); bot.onText(/\🌝🌝🌝🌝🌝🌝/, function (msg) {
 	var chatid = msg.chat.id;
 	var bolnoiUbludokLight = '🌝 🌝 🌝 больной ублюдок 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚 🌚';
 	bot.sendMessage(chatid, bolnoiUbludokLight,{reply_to_message_id : msg.message_id}); 
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }); bot.onText(/\🌞🌞🌞🌞🌞🌞/, function (msg) {
 	var chatid = msg.chat.id;
 	var bolnoiUbludokSun = '🌚 🌝 🌚 🌝 больной ублюдок 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞 🌞'; 
 	bot.sendMessage(chatid, bolnoiUbludokSun,{reply_to_message_id : msg.message_id}); 
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
 	
 	bot.onText(/\/g (.+)/, function (msg, match) {
@@ -230,16 +250,22 @@ var bot = new TelegramBot(token, {polling: true});
 	var noLower = 'нет';
 	if (msg.text == yes) {
 		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == no) {
 		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id});   
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == yesCaps) {
 		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == noCaps) {
 		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == noLower) {
 		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == yesLower) {
 		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
 	bot.onText(/\/test/, function (msg) {
