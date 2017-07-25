@@ -5,23 +5,31 @@ console.log('\nWelcome back, angelok.js! :)\n');
 
 var token = '';
 var bot = new TelegramBot(token, {polling: true});
+let key = '';
+let cx = '';
 
-/*	// екзекутор javascrpit кода
-	bot.onText(/\/eval (.+)/, (msg, match) => {
-	var res = "";
-	var chatid = msg.chat.id;
-	var userid = msg.from.id;
-	var angelok = 148477866;
-	if (userid == angelok) {
-		try {
-		res = eval(match[1]);
-		} catch(e) {
-		res = "Ошибка " + e;
-}
-		bot.sendMessage(chatid, res);
-	} else {
-		bot.sendMessage(chatid, 'У вас нет доступа к этой команде.');	
-}}); */
+bot.onText(/\/g (.*)/i, (msg, params) => {
+    return new Promise((resolve, reject) => {
+    let req = require('https').get("https://www.googleapis.com/customsearch/v1?" + "key=" + key + "&cx=" + cx + "&q=" + encodeURIComponent(params[1]), (res) => {
+    let body = '';
+    res.setEncoding('utf8');
+    res.on('data', chunk => body += chunk);
+    res.on('end', () => resolve(JSON.parse(body)))
+});
+    req.on('error', reject);
+    req.end();
+})
+    .then(x => {
+    return x.items.map(item => {
+    return [
+    item.title,
+    item.link
+    ].join('\n');
+})	.join('\n\n')
+})
+    .then(result => bot.sendMessage(msg.chat.id, result))
+    .catch(x => 'Error!');
+});
 	
 	bot.onText(/\@angelokofficial/, function (msg) {
 	var chatid = msg.chat.id;
@@ -98,40 +106,16 @@ var bot = new TelegramBot(token, {polling: true});
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
 	
-	bot.onText(/\/g (.+)/, function (msg, match) {
+ 	bot.onText(/\/glink (.+)/, function (msg, match) {
 	var resp = match[1];
 	var chatid = msg.chat.id;
 	var msgtext = msg.text;
 	var chatId = msg.chat.id;
 	var form = {};
 	form.chat_id = msg.chat.id;
-	form.text = 'Ебать ты ленивый хуй, но всё же я бот, который должен подчиняться всем. В любом случае, я за тебя залез в Google, держи ссылку:\n\n' + 'http://www.google.ru/search?q=' + resp.replace(/ /ig, '+');
+	form.text = 'Держи ссылку, зай:\n\n' + 'http://www.google.ru/search?q=' + resp.replace(/ /ig, '+');
 	form.disable_web_page_preview = 'true';
     form.reply_to_message_id = msg.message_id;
-    bot._request('sendMessage', { form });
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-}); bot.onText(/\Загугли (.+)/, function (msg, match) {
-	var resp = match[1];
-	var chatid = msg.chat.id;
-	var msgtext = msg.text;
-	var chatId = msg.chat.id;
-	var form = {};
-	form.chat_id = msg.chat.id;
-	form.text = 'Ебать ты ленивый хуй, но всё же я бот, который должен подчиняться всем. В любом случае, я за тебя залез в Google, держи ссылку:\n\n' + 'http://www.google.ru/search?q=' + resp.replace(/ /ig, '+');
-	form.disable_web_page_preview = 'true';
-	form.reply_to_message_id = msg.message_id;
-    bot._request('sendMessage', { form });
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-}); bot.onText(/\загугли (.+)/, function (msg, match) {
-	var resp = match[1];
-	var chatid = msg.chat.id;
-	var msgtext = msg.text;
-	var chatId = msg.chat.id;
-	var form = {};
-	form.chat_id = msg.chat.id;
-	form.text = 'Ебать ты ленивый хуй, но всё же я бот, который должен подчиняться всем. В любом случае, я за тебя залез в Google, держи ссылку:\n\n' + 'http://www.google.ru/search?q=' + resp.replace(/ /ig, '+');
-	form.disable_web_page_preview = 'true';
-	form.reply_to_message_id = msg.message_id;
     bot._request('sendMessage', { form });
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
@@ -268,11 +252,12 @@ var bot = new TelegramBot(token, {polling: true});
 		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
-	bot.onText(/\/test/, function (msg) {
+/* 	bot.onText(/\/bulba123/, function (msg) {
 	var chatid = msg.chat.id;
-	var users = ['angelokofficial', 'voidnull', 'spaaaaacefan', 'WPSTUDIOofficial', 'gershik', 'windows10iso', 'KosBeg', 'zhalka', 'EgoruOff', 'Leckk', 'SoulOfDefend', 'reloadingfoxofficial', 'svitty177', 'ZaMIk', 'VictorDir', 'Lyubimych', 'Sominemo', 'unknwn404', 'Psixoz_Yeah', 'fscty', 'plkvich691'];
+	var users = ['angelokofficial', 'voidnull', 'spaaaaacefan', 'WPSTUDIOofficial', 'gershik', 'windows10iso', 'KosBeg', 'zhalka', 'EgoruOff', 'Leckk', 'SoulOfDefend', 'reloadingfoxofficial', 'svitty177', 'ZaMIk', 'VictorDir', 'Lyubimych', 'Sominemo', 'unknwn404', 'Psixoz_Yeah', 'fscty', 'plkvich691', 'MyDearEvr'];
 	var pidor = 'undefined';
 	var isSpin = 'no_spin';
+	var randTextOne = []
 	var date = new Date();
 	var d = date.getDate();
 	if (d < 10) d = '0' + d;
@@ -290,9 +275,12 @@ var bot = new TelegramBot(token, {polling: true});
 	bot.sendMessage(chatid, ('Машины выехали! Система взломана...'));
 	setTimeout(function() { bot.sendMessage(chatid, ('Сканирую...')) ; }, 2000);
 	setTimeout(function() { bot.sendMessage(chatid, ('КЕК!')) ; }, 5000);
-	setTimeout(function() { bot.sendMessage(chatid, ('Ну ты и кодер — @angelokofficial')) ; }, 7300);
-	});
+	setTimeout(function() { bot.sendMessage(chatid, ('Ну ты и бульба — @zhalka')) ; }, 7300);
+});
 
+	bot.onText(/\/bulbastat123/, function (msg) {
+ */
+	
 // Служебный функционал
 
 	var failed = 'У вас нет прав на выполнение этой команды.';
