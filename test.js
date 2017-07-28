@@ -86,7 +86,7 @@
 	var randTextFour = fourList[Math.floor(Math.random() * fourList.length)];
 	var randTextFive = fiveList[Math.floor(Math.random() * fiveList.length)];
 	var randUser = users[Math.floor(Math.random() * users.length)];
-	if (msg.text != '/bulba') {
+	if (msg.text != '/bulba@epitukh_bot') {
 		console.log
 	} else if (chatid != ipc) {
 		bot.sendMessage(chatid, 'Команда доступна только в IPC.');
@@ -117,6 +117,8 @@
 		bot.sendMessage(chatid, '*Гуглопоиск с результатами*\n\nИспользование: /g (запрос)',{parse_mode : "Markdown"});
 	} else if (msg.text == '/glink') {
 		bot.sendMessage(chatid, '*Гуглопоиск с ссылкой*\n\nИспользование: /glink (запрос)',{parse_mode: "Markdown"});
+	} else if (msg.text == '/bulba') {
+		bot.sendMessage(chatid, '<b>Бульба дня</b>\n\nИспользование: /bulba@epitukh_bot',{parse_mode: "HTML"});
 }});	
 
 
@@ -213,7 +215,7 @@
 	var userid = msg.from.id;
 	var chatid = msg.chat.id;
 	var ipc = -1001102571478;
-	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/bulba — игра «Бульба дня»\n/g — гуглопоиск\n/glink — гуглопоиск с ссылкой\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех (ограничено)\n/angelok_gay - что-то делает\n/time - время\n\nБот также имеет разное прочее говно, помимо команд.';
+	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/bulba — игра «Бульба дня»\n/g — гуглопоиск\n/glink — гуглопоиск с ссылкой\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех (ограничено)\n/angelok_gay - что-то делает\n/time - время\n/cubes - бросает кубики\n\nБот также имеет разное прочее говно, помимо команд.';
 	if (chatid == ipc) {
 		bot.sendMessage(ipc, 'Пробую тебе скинуть...',{reply_to_message_id : msg.message_id}); 
 		console.log('@' + msg.from.username + ' написал боту в лс');
@@ -274,16 +276,6 @@
 		console.log ('Не удалось выполнить команду у ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
-/* 	bot.onText(/\/all/, function (msg) {
-	var chatid = msg.chat.id;
-	var ipc = -1001102571478;
-	if (msg.chat.id == ipc) {
-		bot.sendMessage(ipc, 'Эй, пидоры: @angelokofficial @veselcraft @KosBeg @voidnull @EgoruOff @Leckk @Sominemo @Infernituum @fscty @gershik @spaaaaacefan @reloadingfoxofficial @unknwn404 @SoulOfDefend @Undertale_2K17 @EnzoExotias @augustreinhardt @Psixoz_Yeah @veletrif @m_martynenko @plkvich691 @zhalka, @shellope, вы где тут?');
-	} else {
-		bot.sendMessage(chatid, 'Команда работает только в IPC.');
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-}}); */
-
 	bot.onText(/\/time/, function (msg) {
 	var chatid = msg.chat.id;
 	var date = new Date();
@@ -308,6 +300,13 @@
 	var chatid = msg.chat.id;
 	bot.sendMessage(chatid, 'Анус себе шатни, ' + '@' + msg.from.username ,{reply_to_message_id : msg.message_id}); 
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+});
+	
+	bot.onText(/\/cubes/, function (msg) {
+    var chatid = msg.chat.id;
+	var cubes = ['⚀ ⚀', '⚀ ⚁', '⚀ ⚂', '⚀ ⚃', '⚀ ⚄', '⚀ ⚅', '⚁ ⚀', '⚁ ⚁', '⚁ ⚂', '⚁ ⚃', '⚁ ⚄', '⚁ ⚅',  '⚂ ⚀', '⚂ ⚁', '⚂ ⚂', '⚂ ⚃', '⚂ ⚄', '⚂ ⚅', '⚃ ⚀', '⚃ ⚁', '⚃ ⚂', '⚃ ⚃', '⚃ ⚄', '⚃ ⚅', '⚄ ⚀', '⚄ ⚁', '⚄ ⚂', '⚄ ⚃', '⚄ ⚄', '⚄ ⚅', '⚅ ⚀', '⚅ ⚁', '⚅ ⚂', '⚅ ⚃', '⚅ ⚄', '⚅ ⚅'];
+	var cubesRand = cubes[Math.floor(Math.random() * cubes.length)];
+	bot.sendMessage(chatid, cubesRand);
 });
 
 //админские игрушки
@@ -341,27 +340,10 @@
 		console.log;
 }});
 
-	bot.onText(/\#shutdown/, function (msg) {
-	var chatid = msg.chat.id;
-	if (msg.from.id == angelok) {
-		bot.sendMessage(chatid, 'Отрубаюсь...');
-		process.exit();
-	} else {
-		console.log;
-}});
-
 	bot.on('message', function (msg) {
 	if (msg.from.id != angelok) {
 		console.log;
 	} else if (msg.text == '#reset') {
 		eval(fs.readFileSync('resetgame.js')+''); //сбрасывает защиту
 		console.log('reset successfully');
-}});
-
-	bot.onText(/\/admin/, function (msg) {
-	var chatid = msg.chat.id;
-	if (msg.from.id == angelok) {
-		bot.sendMessage(angelok, 'ипч (текст) -- отправляет сообщение в ipc от имени бота\n\n#log (текст) -- отправляет сообщение в лог/консоль\n\n#clearlogs -- чистит вилкой логи\n#shutdown -- кладёт бота\n#reset -- сбрасывает бульбу дня\n\n/admin -- этот список');
-	} else {
-		console.log('Этот пидор: ' + '@' + msg.from.username + ' (' + msg.from.id + ')' + ', пытался посмотреть админские фичи.');
 }});
