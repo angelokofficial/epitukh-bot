@@ -1,27 +1,8 @@
 console.log('Loading frameworks...')
 var TelegramBot = require('node-telegram-bot-api');
 console.log('Welcome :)\n');
-var token = '362861850:AAFTYbwS56CEfeF57pgVHucOZ8QDvnF9vEc';
+var token = '';
 var bot = new TelegramBot(token, {polling: true});
-
-// ЕБУЧИЙ ШАБЛОН ДЛЯ ТОСТА, НАХУЙ ТУТ НЕ НУЖЕН
-/*	bot.on('message', function (msg) {
-	bot.sendMessage(msg.chat.id, msg.message_id);
-});
-*/
-
-	bot.onText(/\/ids/, function (msg) {
-	var chatid = msg.chat.id;
-	var userid = msg.from.id;
-	bot.sendMessage(chatid, '\nuserid = ' + userid + '\n' + 'chatid = ' + chatid + '\n');
-});
-
-	bot.onText(/\/clear/, function (msg) {
-	var chatid = msg.chat.id;
-	var userid = msg.from.id;
-	bot.sendMessage(chatid, 'Cleared!');
-	console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
-});
 
 	bot.on('message', function (msg) {
 	var chatid = msg.chat.id;
@@ -30,9 +11,7 @@ var bot = new TelegramBot(token, {polling: true});
 	var photo = typeof msg['photo'];
 	var document = typeof msg['document'];
 	var sticker = typeof msg['sticker'];
-	if (msg.text == '/ids', '/clear') {
-		console.log('');
-	} else if (messageId == 'number') {
+	if (messageId == 'number') {
 		bot.sendMessage(chatid, '\nmessage = ' + msg.message_id);
 		console.log('message id was received');
 	} else {
@@ -53,4 +32,3 @@ var bot = new TelegramBot(token, {polling: true});
 	} else {
 		console.log('skip sticker\n');
 }});
-	
