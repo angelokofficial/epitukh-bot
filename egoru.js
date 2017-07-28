@@ -95,8 +95,8 @@
 	} else if (chatid != ipc) {
 		bot.sendMessage(chatid, 'Команда доступна только в IPC.');
 	} else if (isSpin == true) {
-		bot.sendMessage(chatid, 'Кажется, сегодня *бульба дня* уже крутилась. Посмотреть последний розыгрыш можно по хештегу #bulba',{parse_mode : 'Markdown'});
-	} else if (msg.text == '/bulba') {
+		bot.sendMessage(chatid, 'Кажется, сегодня *бульба дня* уже крутилась. Посмотреть последний розыгрыш можно в закреплённом сообщении.',{parse_mode : 'Markdown'});
+	} else if (msg.text == '/bulba@epitukh_bot') {
 		console.log ('Бульба дня была запущена ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 		setTimeout(function() { bot.sendMessage(chatid, randTextOne) ; }, 0);
 		setTimeout(function() { bot.sendMessage(chatid, randTextTwo) ; }, 2000);
