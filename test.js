@@ -1,16 +1,18 @@
-console.log('Loading frameworks...')
-var TelegramBot = require('node-telegram-bot-api');
-var replace = require('replace');
-console.log('\nWelcome back, angelok.js! :)\n');
+	console.log('Loading frameworks...')
+	var TelegramBot = require('node-telegram-bot-api');
+	var replace = require('replace');
+	var fs = require('fs');
+	console.log('\nWelcome back, angelok.js! :)\n');
 
-var token = '';
-var bot = new TelegramBot(token, {polling: true});
-let key = '';
-let cx = '';
-
-bot.onText(/\/g (.*)/i, (msg, params) => {
+	var token = '';
+	var bot = new TelegramBot(token, {polling: true});
+	let key = ''; //апи ключ вашего проекта в Google Cloud Platform
+	let cx = ''; //айди вашей поисковой системы в Google Cloud Platform
+	
+	bot.onText(/\/g (.*)/i, (msg, form) => {
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
     return new Promise((resolve, reject) => {
-    let req = require('https').get("https://www.googleapis.com/customsearch/v1?" + "key=" + key + "&cx=" + cx + "&q=" + encodeURIComponent(params[1]), (res) => {
+    let req = require('https').get("https://www.googleapis.com/customsearch/v1?" + "key=" + key + "&cx=" + cx + "&q=" + encodeURIComponent(form[1]), (res) => {
     let body = '';
     res.setEncoding('utf8');
     res.on('data', chunk => body += chunk);
@@ -28,14 +30,95 @@ bot.onText(/\/g (.*)/i, (msg, params) => {
 })	.join('\n\n')
 })
     .then(result => bot.sendMessage(msg.chat.id, result))
-    .catch(x => 'Error!');
+    .catch(x => 'еррорыч, ёпть');
 });
 	
-	bot.onText(/\@angelokofficial/, function (msg) {
+	bot.on('message', function (msg) {
+	if (msg.text == '/start') {
+		bot.sendMessage(msg.chat.id, 'Hello World!'); 
+		console.log('@' + msg.from.username + ' написал боту в лс');
+}});
+
+	bot.on('message', function (msg) {
 	var chatid = msg.chat.id;
-	bot.sendMessage(chatid, 'Анус себе шатни, ' + '@' + msg.from.username ,{reply_to_message_id : msg.message_id}); 
-	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-});
+	var yes = 'Да';
+	var yesCaps = 'ДА';
+	var yesLower = 'да';
+	var no = 'Нет';
+	var noCaps = 'НЕТ';
+	var noLower = 'нет';
+	if (msg.text == yes) {
+		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == no) {
+		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id});   
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == yesCaps) {
+		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == noCaps) {
+		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == noLower) {
+		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == yesLower) {
+		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+}});
+
+//бульба дня
+//W: TOO MANY GOVNOKOD, PLEASE TRY POMENSHE HUETY
+	bot.on('message', function (msg) {
+	var chatid = msg.chat.id;
+	var users = ['angelokofficial', 'EgoruOff', 'gershik', 'vozzurg', 'voidnull', 'Windows10pro', 'KosBeg', 'OctoNezd', 'ZaMIk', 'WPSTUDIOofficial', 'MyDearEvr', 'svitty177', 'zhalka', 'FRINGE_GHG', 'VictorDir', 'unknwn404', 'Leckk', 'Lyubimych', 'Animehyiter', 'reloadingfoxofficial', 'SoulOfDefend', 'Psixoz_Yeah', 'SuperPuperSteve', 'spaaaaacefan', 'EnzoExotias', 'augustreinhardt', 'Infernituum', 'plkvich691'];
+	var ipc = -1001102571478;
+	var pidor = 'undefined';
+	var isSpin = true;
+	var oneList = ['Бульба дня запущена! А значит, что сегодня на ужин пюрешка!', 'Трактор выехал! Мешки с бульбой украдены...' , 'Выезжаю в огород сажать бульбу...', 'Готовимся ко вкусным драникам...'];
+	var twoList = ['Так, так, так...', 'Ищем подозреваемого...', 'Жарим драники...' , 'Врубаем валлхак и захватываем бульбочку...'];
+	var threeList = ['CAADAgADDAADkWgMAAE2gy03uVNJkAI', 'CAADAgADDgADkWgMAAF4a15udbXbSwI', 'CAADAgADHAADkWgMAAGNFTHDV5sjCQI', 'CAADAgADHgADkWgMAAFT6XtSH6NeMgI', 'CAADAgADVwADkWgMAAEbWbVloCTLmQI'];
+	var fourList = ['Уфф, жостка', 'КЕК!', 'Уух, маладая бульбачка^^', 'Ну што тут можна сказаць...'];
+	var fiveList = ['Ага! Віншую! Сёння ты бульба дня — ', 'Заводите трактора! Бульбой дня объявлен — ', 'Жарьте драники, сегодня бульба дня — ', 'Бацька па тэлявизару кажа, што бульба дня сёння — '];
+	var randTextOne = oneList[Math.floor(Math.random() * oneList.length)];
+	var randTextTwo = twoList[Math.floor(Math.random() * twoList.length)];
+	var randTextThree = threeList[Math.floor(Math.random() * threeList.length)];
+	var randTextFour = fourList[Math.floor(Math.random() * fourList.length)];
+	var randTextFive = fiveList[Math.floor(Math.random() * fiveList.length)];
+	var randUser = users[Math.floor(Math.random() * users.length)];
+	if (msg.text != '/bulba') {
+		console.log
+	} else if (chatid != ipc) {
+		bot.sendMessage(chatid, 'Команда доступна только в IPC.');
+	} else if (isSpin == true) {
+		bot.sendMessage(chatid, 'Кажется, сегодня *бульба дня* уже крутилась. Посмотреть последний розыгрыш можно по хештегу #bulba',{parse_mode : 'Markdown'});
+	} else if (msg.text == '/bulba') {
+		console.log ('Бульба дня была запущена ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+		setTimeout(function() { bot.sendMessage(chatid, randTextOne) ; }, 0);
+		setTimeout(function() { bot.sendMessage(chatid, randTextTwo) ; }, 2000);
+		setTimeout(function() { bot.sendSticker(chatid, randTextThree) ; }, 5000);
+		setTimeout(function() { bot.sendMessage(chatid, randTextFour) ; }, 7300);
+		setTimeout(function() { bot.sendMessage(chatid, randTextFive + '@' + randUser + '\n\n#bulba') ; }, 9500);
+		setTimeout(function() { eval(fs.readFileSync('protect.js')+'') ; }, 9600); //активирует защиту
+}});
+
+/* 		if (msg.text == '/bulbastat') {
+		bot.sendMessage(chatid, 'Данный функционал находится в режиме БЕТА тестирования. Работать может криво, т.к недопилен полностью. Однако, оно работает и со временем будет развиваться.\n\nТоп пока не сделан :(');
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+*/
+//триггер, если юзер просто ввёл команду без запроса
+	bot.on('message', function (msg) {
+	var chatid = msg.chat.id;
+	if (msg.text == '/g@epitukh_bot') {
+		bot.sendMessage(chatid, '*Гуглопоиск с результатами*\n\nИспользование: /g (запрос)',{parse_mode : "Markdown"});
+	} else if (msg.text == '/glink@epitukh_bot') {
+		bot.sendMessage(chatid, '*Гуглопоиск с ссылкой*\n\nИспользование: /glink (запрос)',{parse_mode : "Markdown"});
+	} else if (msg.text == '/g') {
+		bot.sendMessage(chatid, '*Гуглопоиск с результатами*\n\nИспользование: /g (запрос)',{parse_mode : "Markdown"});
+	} else if (msg.text == '/glink') {
+		bot.sendMessage(chatid, '*Гуглопоиск с ссылкой*\n\nИспользование: /glink (запрос)',{parse_mode: "Markdown"});
+}});	
+
 
 	bot.on('message', function (msg) {
 	var chatid = msg.chat.id;
@@ -110,32 +193,30 @@ bot.onText(/\/g (.*)/i, (msg, params) => {
 	var resp = match[1];
 	var chatid = msg.chat.id;
 	var msgtext = msg.text;
-	var chatId = msg.chat.id;
+	var chatid = msg.chat.id;
 	var form = {};
+	form.parse_mode = 'Markdown';
+	form.reply_to_message_id = msg.message_id;
+	form.disable_web_page_preview = true;
 	form.chat_id = msg.chat.id;
-	form.text = 'Держи ссылку, зай:\n\n' + 'http://www.google.ru/search?q=' + resp.replace(/ /ig, '+');
-	form.disable_web_page_preview = 'true';
-    form.reply_to_message_id = msg.message_id;
-    bot._request('sendMessage', { form });
+	form.text = '*Держи ссылку, зай:*\n\n' + 'http://www.google.ru/search?q=' + resp.replace(/ /ig, '+');
+	bot._request('sendMessage', { form });
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
 
 	bot.onText(/\/debug/, function (msg) {
-		console.log('chat_id: ' + msg.chat.id + '\nfrom_id: ' + msg.from.id + '\n');
-		bot.sendMessage(msg.chat.id, 'debug');
-});
-
-	bot.onText(/\/start/, function (msg) {
-	bot.sendMessage(msg.chat.id, 'Hello World!'); 
+	console.log('chat_id: ' + msg.chat.id + '\nfrom_id: ' + msg.from.id + '\n');
+	bot.sendMessage(msg.chat.id, 'debug');
 });
 
 	bot.onText(/\/cmds/, function (msg) {
 	var userid = msg.from.id;
 	var chatid = msg.chat.id;
 	var ipc = -1001102571478;
-	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/g, загугли — гуглопоиск\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех\n/time - время';
+	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/bulba — игра «Бульба дня»\n/g — гуглопоиск\n/glink — гуглопоиск с ссылкой\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех (ограничено)\n/angelok_gay - что-то делает\n/time - время\n\nБот также имеет разное прочее говно, помимо команд.';
 	if (chatid == ipc) {
 		bot.sendMessage(ipc, 'Пробую тебе скинуть...',{reply_to_message_id : msg.message_id}); 
+		console.log('@' + msg.from.username + ' написал боту в лс');
 		bot.sendMessage(userid, msgtext).catch(function(error) {
 		bot.sendMessage(chatid, 'Ты должен написать мне первым, чтобы я мог писать потом тебе.'); })		
 	} else {
@@ -154,7 +235,6 @@ bot.onText(/\/g (.*)/i, (msg, params) => {
 }});
 
 	bot.onText(/\/shatni/, function (msg) {
-	var form = {};
 	var chatid = msg.chat.id;
 	var ipc = -1001102571478;
 	var zamik = 215119658;
@@ -194,7 +274,7 @@ bot.onText(/\/g (.*)/i, (msg, params) => {
 		console.log ('Не удалось выполнить команду у ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
-	bot.onText(/\/all/, function (msg) {
+/* 	bot.onText(/\/all/, function (msg) {
 	var chatid = msg.chat.id;
 	var ipc = -1001102571478;
 	if (msg.chat.id == ipc) {
@@ -202,7 +282,7 @@ bot.onText(/\/g (.*)/i, (msg, params) => {
 	} else {
 		bot.sendMessage(chatid, 'Команда работает только в IPC.');
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-}});
+}}); */
 
 	bot.onText(/\/time/, function (msg) {
 	var chatid = msg.chat.id;
@@ -223,66 +303,14 @@ bot.onText(/\/g (.*)/i, (msg, params) => {
 	bot.sendMessage(chatid, 'Сейчас ' + d + '.' + m + '.' + y + ' ' + h + ':' + n + ' 🌚');
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
-
-	bot.on('message', function (msg) {
+	
+	bot.onText(/\@angelokofficial/, function (msg) {
 	var chatid = msg.chat.id;
-	var yes = 'Да';
-	var yesCaps = 'ДА';
-	var yesLower = 'да';
-	var no = 'Нет';
-	var noCaps = 'НЕТ';
-	var noLower = 'нет';
-	if (msg.text == yes) {
-		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	} else if (msg.text == no) {
-		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id});   
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	} else if (msg.text == yesCaps) {
-		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	} else if (msg.text == noCaps) {
-		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id}); 
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	} else if (msg.text == noLower) {
-		bot.sendMessage(chatid, 'Пидора ответ🌚' ,{reply_to_message_id : msg.message_id}); 
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	} else if (msg.text == yesLower) {
-		bot.sendMessage(chatid, "Пизда🌝" ,{reply_to_message_id : msg.message_id}); 
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-}});
-
-/* 	bot.onText(/\/bulba123/, function (msg) {
-	var chatid = msg.chat.id;
-	var users = ['angelokofficial', 'voidnull', 'spaaaaacefan', 'WPSTUDIOofficial', 'gershik', 'windows10iso', 'KosBeg', 'zhalka', 'EgoruOff', 'Leckk', 'SoulOfDefend', 'reloadingfoxofficial', 'svitty177', 'ZaMIk', 'VictorDir', 'Lyubimych', 'Sominemo', 'unknwn404', 'Psixoz_Yeah', 'fscty', 'plkvich691', 'MyDearEvr'];
-	var pidor = 'undefined';
-	var isSpin = 'no_spin';
-	var randTextOne = []
-	var date = new Date();
-	var d = date.getDate();
-	if (d < 10) d = '0' + d;
-	var m = date.getMonth() + 1;
-	if (m < 10) m = '0' + m;
-	var y = date.getFullYear() % 100;
-	if (y < 10) y = '0' + y;
-	var h = date.getHours();
-	if (h < 10) h = '0' + h;
-	var n = date.getMinutes();
-	if (n < 10) n = '0' + n;  
-	var s = date.getSeconds();
-	if (s < 10) s = '0' + s;
-	var ms = date.getMilliseconds();
-	bot.sendMessage(chatid, ('Машины выехали! Система взломана...'));
-	setTimeout(function() { bot.sendMessage(chatid, ('Сканирую...')) ; }, 2000);
-	setTimeout(function() { bot.sendMessage(chatid, ('КЕК!')) ; }, 5000);
-	setTimeout(function() { bot.sendMessage(chatid, ('Ну ты и бульба — @zhalka')) ; }, 7300);
+	bot.sendMessage(chatid, 'Анус себе шатни, ' + '@' + msg.from.username ,{reply_to_message_id : msg.message_id}); 
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
 
-	bot.onText(/\/bulbastat123/, function (msg) {
- */
-	
-// Служебный функционал
-
+//админские игрушки
 	var failed = 'У вас нет прав на выполнение этой команды.';
 	var angelok = 148477866;
 	var ipc = -1001102571478;
@@ -294,20 +322,15 @@ bot.onText(/\/g (.*)/i, (msg, params) => {
         	bot.sendMessage(ipc, resp);
                 console.log('Ты успешно написал в IPC :)');
         } else {
-             	bot.sendMessage(msg.chat.id, failed);
-                console.log('Этот пидор: ' + '@' + msg.from.username + ' (' + msg.from.id + ')' + ', пытался написать в IPC.');
+                console.log;
 }});
 
 	bot.onText(/\#clearlogs/, function (msg) {
 	var chatid = msg.chat.id;
-                if (msg.from.id == angelok) {
-                        console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
-                        console.log('Logs has been cleared.');
-			bot.sendMessage(chatid, 'Логи успешно очищены.');
-                } else {
-                        bot.sendMessage(msg.chat.id, failed);
-                        console.log('Этот пидор: ' + '@' + msg.from.username + ' (' + msg.from.id + ')' + ', пытался почистить логи.');
-
+	if (msg.from.id == angelok) {
+		console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
+	} else {
+		console.log;
 }});
 
 	bot.onText(/\#log (.+)/, function (msg, match) {
@@ -315,15 +338,30 @@ bot.onText(/\/g (.*)/i, (msg, params) => {
 	if (msg.from.id == angelok) {
 		console.log(resp);
 	} else {
-		bot.sendMessage(msg.chat.id, failed);
+		console.log;
 }});
 
+	bot.onText(/\#shutdown/, function (msg) {
+	var chatid = msg.chat.id;
+	if (msg.from.id == angelok) {
+		bot.sendMessage(chatid, 'Отрубаюсь...');
+		process.exit();
+	} else {
+		console.log;
+}});
+
+	bot.on('message', function (msg) {
+	if (msg.from.id != angelok) {
+		console.log;
+	} else if (msg.text == '#reset') {
+		eval(fs.readFileSync('resetgame.js')+''); //сбрасывает защиту
+		console.log('reset successfully');
+}});
 
 	bot.onText(/\/admin/, function (msg) {
 	var chatid = msg.chat.id;
 	if (msg.from.id == angelok) {
-		bot.sendMessage(angelok, 'ипч (текст) -- отправляет сообщение в ipc от имени бота\n\n#log (текст) -- отправляет сообщение в лог/консоль\n\n#clearlogs -- чистит вилкой логи\n\n/admin -- этот список');
+		bot.sendMessage(angelok, 'ипч (текст) -- отправляет сообщение в ipc от имени бота\n\n#log (текст) -- отправляет сообщение в лог/консоль\n\n#clearlogs -- чистит вилкой логи\n#shutdown -- кладёт бота\n#reset -- сбрасывает бульбу дня\n\n/admin -- этот список');
 	} else {
-		bot.sendMessage(chatid, failed);
 		console.log('Этот пидор: ' + '@' + msg.from.username + ' (' + msg.from.id + ')' + ', пытался посмотреть админские фичи.');
 }});
