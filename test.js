@@ -1,3 +1,7 @@
+// EPitukh Bot
+// Copyright @ 2017 Vitya Angelov
+// For contact: https://t.me/angelokofficial
+
 	console.log('Loading frameworks...')
 	var TelegramBot = require('node-telegram-bot-api');
 	var replace = require('replace');
