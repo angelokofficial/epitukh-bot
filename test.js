@@ -95,8 +95,8 @@
 	} else if (chatid != ipc) {
 		bot.sendMessage(chatid, 'Команда доступна только в IPC.');
 	} else if (isSpin == true) {
-		bot.sendMessage(chatid, 'Кажется, сегодня *бульба дня* уже крутилась. Посмотреть последний розыгрыш можно по хештегу #bulba',{parse_mode : 'Markdown'});
-	} else if (msg.text == '/bulba') {
+		bot.sendMessage(chatid, 'Кажется, сегодня *бульба дня* уже крутилась. Посмотреть последний розыгрыш можно в закреплённом сообщении.',{parse_mode : 'Markdown'});
+	} else if (msg.text == '/bulba@epitukh_bot') {
 		console.log ('Бульба дня была запущена ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 		setTimeout(function() { bot.sendMessage(chatid, randTextOne) ; }, 0);
 		setTimeout(function() { bot.sendMessage(chatid, randTextTwo) ; }, 2000);
@@ -105,24 +105,33 @@
 		setTimeout(function() { bot.sendMessage(chatid, randTextFive + '@' + randUser + '\n\n#bulba') ; }, 9500);
 		setTimeout(function() { eval(fs.readFileSync('protect.js')+'') ; }, 9600); //активирует защиту
 }});
-
-/* 		if (msg.text == '/bulbastat') {
-		bot.sendMessage(chatid, 'Данный функционал находится в режиме БЕТА тестирования. Работать может криво, т.к недопилен полностью. Однако, оно работает и со временем будет развиваться.\n\nТоп пока не сделан :(');
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-*/
-//триггер, если юзер просто ввёл команду без запроса
+		
 	bot.on('message', function (msg) {
 	var chatid = msg.chat.id;
 	if (msg.text == '/g@epitukh_bot') {
 		bot.sendMessage(chatid, '*Гуглопоиск с результатами*\n\nИспользование: /g (запрос)',{parse_mode : "Markdown"});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '/glink@epitukh_bot') {
 		bot.sendMessage(chatid, '*Гуглопоиск с ссылкой*\n\nИспользование: /glink (запрос)',{parse_mode : "Markdown"});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '/g') {
 		bot.sendMessage(chatid, '*Гуглопоиск с результатами*\n\nИспользование: /g (запрос)',{parse_mode : "Markdown"});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '/glink') {
 		bot.sendMessage(chatid, '*Гуглопоиск с ссылкой*\n\nИспользование: /glink (запрос)',{parse_mode: "Markdown"});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '/bulba') {
 		bot.sendMessage(chatid, '<b>Бульба дня</b>\n\nИспользование: /bulba@epitukh_bot',{parse_mode: "HTML"});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == '/bulbastat@epitukh_bot') {
+		bot.sendMessage(chatid, 'Данный функционал находится в режиме БЕТА тестирования. Работать может криво, т.к недопилен полностью. Однако, оно работает и со временем будет развиваться.\n\n1. @Animehyiter - <b>1 раз</b>\n2. @FRINGE_GHG - <b>1 раз</b>',{parse_mode: "HTML"});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == '/bulbastat') {
+		bot.sendMessage(chatid, '<b>Статистика «Бульбы дня»</b>\n\nИспользование: /bulbastat@epitukh_bot',{parse_mode: "HTML"});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == '/time') {
+		bot.sendMessage(chatid, '<b>Текущее время в МСК</b>\n\nИспользование: /time@epitukh_bot',{parse_mode: "HTML"});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});	
 
 
@@ -219,7 +228,7 @@
 	var userid = msg.from.id;
 	var chatid = msg.chat.id;
 	var ipc = -1001102571478;
-	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/bulba — игра «Бульба дня»\n/g — гуглопоиск\n/glink — гуглопоиск с ссылкой\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех (ограничено)\n/angelok_gay - что-то делает\n/time - время\n/cubes - бросает кубики\n\nБот также имеет разное прочее говно, помимо команд.';
+	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/bulba — игра «Бульба дня»\n/bulbastat — статистика по игре\n/g — гуглопоиск\n/glink — гуглопоиск с ссылкой\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех (ограничено)\n/angelok_gay - что-то делает\n/time - время\n/cubes - бросает кубики\n\nБот также имеет разное прочее говно, помимо команд.';
 	if (chatid == ipc) {
 		bot.sendMessage(ipc, 'Пробую тебе скинуть...',{reply_to_message_id : msg.message_id}); 
 		console.log('@' + msg.from.username + ' написал боту в лс');
@@ -280,7 +289,7 @@
 		console.log ('Не удалось выполнить команду у ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
-	bot.onText(/\/time/, function (msg) {
+	bot.onText(/\/time@epitukh_bot/, function (msg) {
 	var chatid = msg.chat.id;
 	var date = new Date();
 	var d = date.getDate();
@@ -311,6 +320,7 @@
 	var cubes = ['⚀ ⚀', '⚀ ⚁', '⚀ ⚂', '⚀ ⚃', '⚀ ⚄', '⚀ ⚅', '⚁ ⚀', '⚁ ⚁', '⚁ ⚂', '⚁ ⚃', '⚁ ⚄', '⚁ ⚅',  '⚂ ⚀', '⚂ ⚁', '⚂ ⚂', '⚂ ⚃', '⚂ ⚄', '⚂ ⚅', '⚃ ⚀', '⚃ ⚁', '⚃ ⚂', '⚃ ⚃', '⚃ ⚄', '⚃ ⚅', '⚄ ⚀', '⚄ ⚁', '⚄ ⚂', '⚄ ⚃', '⚄ ⚄', '⚄ ⚅', '⚅ ⚀', '⚅ ⚁', '⚅ ⚂', '⚅ ⚃', '⚅ ⚄', '⚅ ⚅'];
 	var cubesRand = cubes[Math.floor(Math.random() * cubes.length)];
 	bot.sendMessage(chatid, cubesRand);
+	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
 
 //админские игрушки
