@@ -1,5 +1,5 @@
 // EPitukh Bot
-// Copyright @ 2017 Vitya Angelov
+// Copyright © 2017 Vitya Angelov
 // For contact: https://t.me/angelokofficial
 
 	console.log('Loading frameworks...')
@@ -12,6 +12,19 @@
 	var bot = new TelegramBot(token, {polling: true});
 	let key = ''; //апи ключ вашего проекта в Google Cloud Platform
 	let cx = ''; //айди вашей поисковой системы в Google Cloud Platform
+	
+	bot.onText(/\/bulbastat@epitukh_bot/, function (msg) {
+	var chatid = msg.chat.id;
+	var ipc = -1001102571478;
+	var ed = -1001133879759;
+	if (chatid == ipc) {
+		bot.sendMessage(chatid,'Топ бульбочек ин зе ворлд:\n\n1. <code>@EgoruOff</code> - <b>4 раза</b>\n2. <code>@Infernituum</code> - <b>3 раза</b>\n3. <code>@Animehyiter</code> - <b>3 раза</b>\n4. <code>@OctoNezd</code> - <b>2 раза</b>\n5. <code>@angelokofficial</code> - <b>2 раза</b>\n6. <code>@FRINGE_GHG</code> - <b>2 раза</b>\n7. <code>@Lyubimych</code> - <b>2 раз</b>\n8. <code>@ZaMIk</code> - <b>2 раза</b>\n9. <code>@Leckk</code> - <b>2 раза</b>\n10. <code>@reloadingfoxofficial</code> - <b>2 раза</b>\n11. <code>@MyDearEvr</code> - <b>1 раз</b>\n12. <code>@spaaaaacefan</code> - <b>1 раз</b>\n13. <code>@chorogon</code> - <b>1 раз</b>\n14. <code>@svitty177</code> - <b>1 раз</b>\n15. <code>@SuperPuperSteve</code> - <b>1 раз</b>\n16. <code>@unknwn404</code> - <b>1 раз</b>\n17. <code>@KosBeg</code> - <b>1 раз</b>\n18. <code>@fuckussr</code> - <b>1 раз</b>\n19. <code>@gershik</code> - <b>1 раз</b>',{parse_mode: "HTML"});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else {
+		bot.sendMessage(chatid, 'Команда работает только в IPC.');
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+
+}});
 	
 	bot.onText(/\/g (.*)/i, (msg, form) => {
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
@@ -33,7 +46,7 @@
     ].join('\n');
 })	.join('\n\n')
 })
-    .then(result => bot.sendMessage(msg.chat.id, result))
+    .then(result => bot.sendMessage(msg.chat.id, result, {reply_to_message_id : msg.message_id}))
     .catch(x => 'еррорыч, ёпть');
 });
 	
@@ -75,7 +88,8 @@
 //W: TOO MANY GOVNOKOD, PLEASE TRY POMENSHE HUETY
 	bot.on('message', function (msg) {
 	var chatid = msg.chat.id;
-	var users = ['angelokofficial', 'EgoruOff', 'gershik', 'vozzurg', 'voidnull', 'Windows10pro', 'KosBeg', 'OctoNezd', 'ZaMIk', 'WPSTUDIOofficial', 'MyDearEvr', 'svitty177', 'zhalka', 'FRINGE_GHG', 'VictorDir', 'unknwn404', 'Leckk', 'Lyubimych', 'Animehyiter', 'reloadingfoxofficial', 'SoulOfDefend', 'Psixoz_Yeah', 'SuperPuperSteve', 'spaaaaacefan', 'EnzoExotias', 'augustreinhardt', 'Infernituum', 'plkvich691'];
+	var users = ['angelokofficial', 'EgoruOff', 'gershik', 'chorogon', 'fuckussr', 'FoxLuna', 'KosBeg', 'OctoNezd', 'ZaMIk', 'WPSTUDIOofficial', 'MyDearEvr', 'svitty177', 'zhalka', 'FRINGE_GHG', 'VictorDir', 'unknwn404', 'Leckk', 'Lyubimych', 'Animehyiter', 'reloadingfoxofficial', 'Psixoz_Yeah', 'SuperPuperSteve', 'spaaaaacefan', 'Infernituum', 'plkvich691'];
+//	var ipc = -1001133879759; //ed
 	var ipc = -1001102571478;
 	var pidor = 'undefined';
 	var isSpin = true;
@@ -102,8 +116,8 @@
 		setTimeout(function() { bot.sendMessage(chatid, randTextTwo) ; }, 2000);
 		setTimeout(function() { bot.sendSticker(chatid, randTextThree) ; }, 5000);
 		setTimeout(function() { bot.sendMessage(chatid, randTextFour) ; }, 7300);
-		setTimeout(function() { bot.sendMessage(chatid, randTextFive + '@' + randUser + '\n\n#bulba') ; }, 9500);
-		setTimeout(function() { eval(fs.readFileSync('protect.js')+'') ; }, 9600); //активирует защиту
+		setTimeout(function() { bot.sendMessage(chatid, randTextFive + '@' + randUser + '\n\nbeta') ; }, 9500);
+		setTimeout(function() { eval(fs.readFileSync('protect.js')+''); }, 9600); //сбрасывает защиту
 }});
 		
 	bot.on('message', function (msg) {
@@ -123,9 +137,6 @@
 	} else if (msg.text == '/bulba') {
 		bot.sendMessage(chatid, '<b>Бульба дня</b>\n\nИспользование: /bulba@epitukh_bot',{parse_mode: "HTML"});
 		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-	} else if (msg.text == '/bulbastat@epitukh_bot') {
-		bot.sendMessage(chatid, 'Данный функционал находится в режиме БЕТА тестирования. Работать может криво, т.к недопилен полностью. Однако, оно работает и со временем будет развиваться.\n\n1. @Animehyiter - <b>1 раз</b>\n2. @FRINGE_GHG - <b>1 раз</b>',{parse_mode: "HTML"});
-		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '/bulbastat') {
 		bot.sendMessage(chatid, '<b>Статистика «Бульбы дня»</b>\n\nИспользование: /bulbastat@epitukh_bot',{parse_mode: "HTML"});
 		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
@@ -133,7 +144,6 @@
 		bot.sendMessage(chatid, '<b>Текущее время в МСК</b>\n\nИспользование: /time@epitukh_bot',{parse_mode: "HTML"});
 		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});	
-
 
 	bot.on('message', function (msg) {
 	var chatid = msg.chat.id;
@@ -184,7 +194,6 @@
 	} else if (msg.text == '🌞🌞🌞🌞🌞') {
 		bot.sendMessage(chatid, '🌞🌞🌞🌞🌞',{reply_to_message_id : msg.message_id});	
 		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-		
 }});
 
 	bot.onText(/\🌚🌚🌚🌚🌚🌚/, function (msg) {
@@ -305,7 +314,7 @@
 	var s = date.getSeconds();
 	if (s < 10) s = '0' + s;
 	var ms = date.getMilliseconds();
-	bot.sendMessage(chatid, 'Сейчас ' + d + '.' + m + '.' + y + ' ' + h + ':' + n + ' 🌚');
+	bot.sendMessage(chatid, h + ':' + n + ' / ' + d + '.' + m + '.' + y + ' / ' + 'GMT +3' + ' / ' + 'UTC +03' + ' / ' + 'Europe, Minsk', {reply_to_message_id : msg.message_id});
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
 	
@@ -323,6 +332,126 @@
 	console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 });
 
+/*
+	bot.onText(/\/get (.*)/, function (msg, match) {
+	var chatid = msg.chat.id;
+	var resp = match[1];
+	var list = ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е'];
+	var listCaps = ['А', 'У', 'О', 'Ы', 'И', 'Э', 'Я', 'Ю', 'Ё', 'Е'];
+	if (resp.charAt(0) == 'а') {
+		
+	} else (resp.charAt(0) == 'а') {
+    	console.log('not detected');
+}});
+*/
+
+	bot.on('message', function (msg) {
+	var chatid = msg.chat.id; 
+	var nr0 = Math.floor(Math.random()*99999);
+	var nr1 = Math.floor(Math.random()*99999);
+	var nr2 = Math.floor(Math.random()*10);
+	var nr3 = Math.floor(Math.random()*10);
+	var nr4 = Math.floor(Math.random()*10);
+	var str1 = 'Соси хуй. Вы проиграли. Списалось ' + nr0 + ' монеток, на счету осталось ' + nr1 + ' монеток.\nЧисла не совпали, выпало: ' + nr2 + ' и ' + nr3;
+	var str2 = 'Урашечки-хуяшечки :)\nВы проебали ' + nr0 + ' монеток. Числа совпали ' + nr4 + ' и ' + nr4;
+	var words = [str1, str2];
+	var wordsR = words[Math.floor(Math.random() * words.length)];
+	if (msg.text == 'Питух, играем') {
+		bot.sendMessage(chatid, wordsR, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == 'Герш, играем') {
+		bot.sendMessage(chatid, 'Герш не игровой автомат :c', {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == 'Ангелок, играем') {
+		bot.sendMessage(chatid, 'Поиграл тебе за щеку', {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msg.text == 'Фсцт, играем') {
+		bot.sendMessage(chatid, 'Зайка Фсцт не играет🙃 ^^', {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+}});
+
+	bot.on('message', function (msg) {
+	var angelok = 148477866;
+	var chatid = msg.chat.id;
+	var stickers = ['CAADBQADEgADY8qwAAFqyxe8Ft4qVQI', 'CAADBQADFAADY8qwAAFLL6Bl6emnAwI', 'CAADBQADFgADY8qwAAHV__WTv3P0_QI', 'CAADBQADGAADY8qwAAE--qtfaNEXbgI', 'CAADBQADGgADY8qwAAHVwhBSlYtZcwI', 'CAADBQADHAADY8qwAAGgTKZBzBthNAI', 'CAADBQADHgADY8qwAAGpK3k4LRQ0egI', 'CAADBQADIAADY8qwAAF9QjHI-Jgc8AI', 'CAADBQADIgADY8qwAAFmKoIFfXc2VAI', 'CAADBQADJAADY8qwAAFM8kGl-y_ljAI', 'CAADBQADJgADY8qwAAHiQlhsHHn6VgI', 'CAADBQADKAADY8qwAAHmh8nX6SDj6wI', 'CAADBQADKgADY8qwAAGsbcQnkKCw5wI', 'CAADBQADLAADY8qwAAHsPB-oQep30wI', 'CAADBQADLgADY8qwAAFBjw_llLf84QI', 'CAADBQADMAADY8qwAAH_odlp9QEFHQI', 'CAADBQADMgADY8qwAAFj_S16q3K4kQI', 'CAADBQADNAADY8qwAAHXr-WVbW_-hQI', 'CAADBQADNgADY8qwAAHsiDs5qcuMpQI', 'CAADBQADOAADY8qwAAGuucx2zGhRNAI', 'CAADBQADOgADY8qwAAHL_CEVsCz3RAI', 'CAADBQADPAADY8qwAAE8MsqI7xmu3gI', 'CAADBQADPgADY8qwAAFMejzrUJhn0AI', 'CAADBQADQAADY8qwAAGimmCTvP2v-wI', 'CAADBQADQgADY8qwAAHQ_uqwDVuZNwI', 'CAADBQADRAADY8qwAAHrgcft1EP0XAI', 'CAADBQADRgADY8qwAAHNlRkAAS6Swf0C'];
+	var rand = stickers[Math.floor(Math.random() * stickers.length)];
+	if (msg.text != 'Апатия, играем') {
+		console.log;
+	} else if (msg.from.id != angelok) {
+		bot.sendMessage(chatid, 'В Апатьку играть может только Ангелок 😍❤️', {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+}});
+
+	bot.on('message', function (msg) {
+	var chatid = msg.chat.id;
+	var msgtext = msg.text;
+	if (msgtext.indexOf('Щек') != -1) {
+		bot.sendMessage(chatid, 'Видит щека в щеке щеку\nСует щека в щеку щеку\nЩека щеку за щеку щеку\nЩеку щеку щеку щеку', {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('ЩЕК') != -1) {
+		bot.sendMessage(chatid, 'Видит щека в щеке щеку\nСует щека в щеку щеку\nЩека щеку за щеку щеку\nЩеку щеку щеку щеку', {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('щек') != -1) {
+		bot.sendMessage(chatid, 'Видит щека в щеке щеку\nСует щека в щеку щеку\nЩека щеку за щеку щеку\nЩеку щеку щеку щеку', {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else {
+		console.log;
+}});
+
+	bot.on('message', function (msg) {
+	var chatid = msg.chat.id;
+	var msgtext = msg.text;
+	var stickers = ['CAADAgADegEAAqqX2QgipNx7yH1emgI', 'CAADAgADzAIAAu0ddgrlHMuwfvfsYwI', 'CAADAgADlAEAAu0ddgr9d9X3TvyrlAI', 'CAADAgADEQYAAiVUQBNdhzfaD769CwI', ' CAADAgAD-AIAAiFTBAABzvgMgY27edwC', 'CAADAgAD8gIAAiFTBAABmT4fqYM4spgC', 'CAADAgAD8AIAAiFTBAABrVORLQQM7i8C', 'CAADAgAD7gIAAiFTBAABw4zJcdtQqkAC', 'CAADAgAD7AIAAiFTBAAB_bRifLIocgQC', 'CAADAgAD7wMAAtQlfAk5Dk6f77taogI', 'CAADAgADewADV_cqCySXmLEi2qmfAg', 'CAADAgADPA0AAlOx9wPNS7SP6Uhq1AI', 'CAADBAADVAgAAlUYSwLiDbjJpSAhiwI', 'CAADAgADxgMAAtQlfAmjQPFRjMzWxAI', 'CAADAgAD2gIAAu0ddgpZ9i0pTqGfhAI'];
+	var rand = stickers[Math.floor(Math.random() * stickers.length)];
+	if (msgtext.indexOf('Ор') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('ОР') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('ор') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('ААА') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('ааа') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('Ааа') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('АХАХ') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('ахах') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('Ахах') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('ХАХА') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('хаха') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (msgtext.indexOf('Хаха') == 0) {
+		bot.sendSticker(chatid, rand, {reply_to_message_id : msg.message_id});
+		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+}});
+
+	bot.onText(/\)/, function (msg) {
+	var chatid = msg.chat.id;
+	bot.sendSticker(chatid, 'CAADAgADtQMAAtQlfAlKq1LJYDkonwI', {reply_to_message_id : msg.message_id});
+}); bot.onText(/\(/, function (msg) {
+	var chatid = msg.chat.id;
+	bot.sendSticker(chatid, 'CAADAgAD-wMAAtQlfAmYugABy4pCSzAC', {reply_to_message_id : msg.message_id});
+});
+
 //админские игрушки
 	var failed = 'У вас нет прав на выполнение этой команды.';
 	var angelok = 148477866;
@@ -338,12 +467,12 @@
                 console.log;
 }});
 
-	bot.onText(/\#clearlogs/, function (msg) {
+	bot.onText(/\/clearlogs/, function (msg) {
 	var chatid = msg.chat.id;
-	if (msg.from.id == angelok) {
-		console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
-	} else {
+	if (msg.from.id != angelok) {
 		console.log;
+	} else {
+		console.log('n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
 }});
 
 	bot.onText(/\#log (.+)/, function (msg, match) {
@@ -357,7 +486,7 @@
 	bot.on('message', function (msg) {
 	if (msg.from.id != angelok) {
 		console.log;
-	} else if (msg.text == '#reset') {
+	} else if (msg.text == '/reset') {
 		eval(fs.readFileSync('resetgame.js')+''); //сбрасывает защиту
 		console.log('reset successfully');
 }});
