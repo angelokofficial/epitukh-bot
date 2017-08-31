@@ -9,7 +9,7 @@
 	console.log('\nWelcome back, angelok.js! :)\n');
 
 	var token = '';
-	var bot = new TelegramBot(token, {polling: true});
+	var bot = new TelegramBot(token, {polling: true}); 
 	let key = ''; //апи ключ вашего проекта в Google Cloud Platform
 	let cx = ''; //айди вашей поисковой системы в Google Cloud Platform
 	
