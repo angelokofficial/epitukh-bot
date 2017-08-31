@@ -23,7 +23,6 @@
 	} else {
 		bot.sendMessage(chatid, 'Команда работает только в IPC.');
 		console.log ('Ответ на сообщение ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
-
 }});
 	
 	bot.onText(/\/g (.*)/i, (msg, form) => {
