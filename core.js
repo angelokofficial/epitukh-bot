@@ -21,7 +21,7 @@
 	var h = date.getHours();
 	if (h < 10) h = '0' + h;
 	var n = date.getMinutes();
-	if (n < 10) n = '0' + n;  
+	if (n < 10) n = '0' + n;
 	console.log('[I] Bot was launched at ' + d + '/' + m + '/17 ' + h + ':' + n + '\n');
 
 	bot.on('message', function (msg) {
