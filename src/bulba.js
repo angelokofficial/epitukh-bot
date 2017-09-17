@@ -31,6 +31,5 @@
 		setTimeout(function() { bot.sendSticker(chatid, randTextThree) ; }, 5000);
 		setTimeout(function() { bot.sendMessage(chatid, randTextFour) ; }, 7300);
 		setTimeout(function() { bot.sendMessage(chatid, randTextFive + '@' + randUser) ; }, 9500);
-		bot.pinChatMessage(chatid, msg.message_id);
 		setTimeout(function() { eval(fs.readFileSync('src/autopin.js')+''); }, 9500); //пиннит бульбу	
 };
