@@ -12,7 +12,7 @@
 	var bot = new TelegramBot(token, {polling: true});
 	let key = ''; //апи ключ вашего проекта в Google Cloud Platform
 	let cx = ''; //айди вашей поисковой системы в Google Cloud Platform
-
+	
 	var date = new Date();
 	var d = date.getDate();
 	if (d < 10) d = '0' + d;
@@ -206,19 +206,6 @@
 	console.log('chat_id: ' + msg.chat.id + '\nfrom_id: ' + msg.from.id + '\n');
 	bot.sendMessage(msg.chat.id, 'debug');
 });
-
-	bot.onText(/\/cmds/, function (msg) {
-	var userid = msg.from.id;
-	var chatid = msg.chat.id;
-	var ipc = -1001102571478;
-	var msgtext = 'Привет, ' + msg.from.first_name + '!' + '\n\n/bulba — игра «Бульба дня»\n/bulbastat — статистика по игре\n/g — гуглопоиск\n/glink — гуглопоиск с ссылкой\n/shatni — шатает ангелка\n/user — шатает по юзернейму\n/all - шатает всех (ограничено)\n/angelok_gay - что-то делает\n/time - время\n/cubes - бросает кубики\n\nБот также имеет разное прочее говно, помимо команд.';
-	if (chatid == ipc) {
-		bot.sendMessage(ipc, 'Пробую тебе скинуть...',{reply_to_message_id : msg.message_id}); 
-		bot.sendMessage(userid, msgtext).catch(function(error) {
-		bot.sendMessage(chatid, 'Ты должен написать мне первым, чтобы я мог писать потом тебе.'); })		
-	} else {
-		bot.sendMessage(userid, msgtext);
-}});
 	
 	bot.onText(/\/angelok_gay/, function (msg) {
 	var chatid = msg.chat.id;
