@@ -2,8 +2,9 @@
 	var token = ''; //токен вашего бота
 	var bot = new TelegramBot(token, {polling: false});
 	var fs = require('fs');
+	var todaybulba = require('./src/todaybulba');
 	var chatid = msg.chat.id;
-	var users = ['angelokofficial', 'gershik', 'EgoruOff', 'chorogon', 'fuckussr', 'amxlosted217', 'KosBeg', 'OctoNezd', 'WPSTUDIOofficial', 'MyDearEvr', 'zhalka', 'FRINGE_GHG', 'VictorDir', 'unknwn404', 'Leckk', 'Lyubimych', 'reloadingfoxofficial', 'Psixoz_Yeah', 'SuperPuperSteve', 'spaaaaacefan', 'Infernituum'];
+	var users = ['angelokofficial', 'gershik', 'EgoruOff', 'fuckussr', 'amxlosted217', 'KosBeg', 'OctoNezd', 'WPSTUDIOofficial', 'MyDearEvr', 'zhalka', 'VictorDir', 'unknwn404', 'Leckk', 'Lyubimych', 'reloadingfoxofficial', 'Psixoz_Yeah', 'spaaaaacefan', 'Infernituum'];
 //	var ipc = -1001133868291; //ed
 	var ipc = -1001102571478; //ipc
 	var isSpin = true;
@@ -22,15 +23,16 @@
 		console.log;
 	} else if (chatid != ipc) {
 		bot.sendSticker(chatid, 'CAADAgADwQMAAtQlfAnWSOPgAs6UbwI', {reply_to_message_id : msg.message_id});
+		console.log ('[I] ' + 'Reply to the message from ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (isSpin == true) {
-		bot.sendMessage(chatid, 'Кажется, сегодня *бульба дня* уже крутилась. Посмотреть последний розыгрыш можно в закреплённом сообщении.',{parse_mode : 'Markdown'});
+		bot.sendMessage(chatid, 'По результатам розыгрыша, <b>бульба дня</b> сегодня ты — ' + todaybulba.bulba, {parse_mode : 'HTML'});
+		console.log ('[I] ' + 'Reply to the message from ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text == '/bulba@epitukh_bot') {
-		console.log ('Бульба дня была запущена ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+		console.log ('[I] BOTD has been launched by ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 		setTimeout(function() { bot.sendMessage(chatid, randTextOne) ; }, 100);
 		setTimeout(function() { bot.sendMessage(chatid, randTextTwo) ; }, 2000);
 		setTimeout(function() { bot.sendSticker(chatid, randTextThree) ; }, 5000);
 		setTimeout(function() { bot.sendMessage(chatid, randTextFour) ; }, 7300);
 		setTimeout(function() { bot.sendMessage(chatid, randTextFive + '@' + randUser) ; }, 9500);
-		bot.pinChatMessage(chatid, msg.message_id);
-		setTimeout(function() { eval(fs.readFileSync('src/autopin.js')+''); }, 9500); //пиннит бульбу	
+		setTimeout(function() { fs.writeFile('src/todaybulba.js', 'module.exports.bulba = ' + '\'' + '@' + randUser + '\'' + ';'); }, 9600); //заносит бульбу
 };
