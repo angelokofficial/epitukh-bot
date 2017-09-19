@@ -34,10 +34,5 @@
 		setTimeout(function() { bot.sendSticker(chatid, randTextThree) ; }, 5000);
 		setTimeout(function() { bot.sendMessage(chatid, randTextFour) ; }, 7300);
 		setTimeout(function() { bot.sendMessage(chatid, randTextFive + '@' + randUser) ; }, 9500);
-<<<<<<< HEAD
 		setTimeout(function() { fs.writeFile('src/todaybulba.js', 'module.exports.bulba = ' + '\'' + '@' + randUser + '\'' + ';'); }, 9600); //заносит бульбу
 };
-=======
-		setTimeout(function() { eval(fs.readFileSync('src/autopin.js')+''); }, 9500); //пиннит бульбу	
-};
->>>>>>> 5643c442f2ca466f439178de6a9f707b86347223
