@@ -12,7 +12,7 @@
 	var bot = new TelegramBot(token, {polling: true});
 	let key = ''; //апи ключ вашего проекта в Google Cloud Platform
 	let cx = ''; //айди вашей поисковой системы в Google Cloud Platform
-	
+		
 	var date = new Date();
 	var d = date.getDate();
 	if (d < 10) d = '0' + d;
