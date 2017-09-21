@@ -6,7 +6,7 @@
 1. Use `node-dev /path/to/the/bot/core.js` command for start the bot.
 
 ##### Libraries
-1. [node-telegram-bot-api](https://www.npmjs.com/package/node-telegram-bot-api) (with dependencies)
+1. [node-telegram-bot-api](https://www.npmjs.com/package/node-telegram-bot-api)
 2. [replace](https://www.npmjs.com/package/replace)
 3. [node-dev](https://www.npmjs.com/package/node-dev)
 
