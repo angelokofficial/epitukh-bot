@@ -6,4 +6,3 @@ replace({
   recursive: false,
   silent: false,
 });
-console.log('[I] BOTD has been reseted')
