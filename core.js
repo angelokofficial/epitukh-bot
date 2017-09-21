@@ -12,7 +12,7 @@
 	var bot = new TelegramBot(token, {polling: true});
 	let key = ''; //апи ключ вашего проекта в Google Cloud Platform
 	let cx = ''; //айди вашей поисковой системы в Google Cloud Platform
-		
+
 	var date = new Date();
 	var d = date.getDate();
 	if (d < 10) d = '0' + d;
@@ -589,15 +589,7 @@
 	} else {
 		console.log;
 }});
-
-	bot.on('message', function (msg) {
-	var chatid = msg.chat.id;
-	if (msg.from.id != angelok) {
-		console.log;
-	} else if (msg.text == '/reset') {
-		eval(fs.readFileSync('src/resetgame.js')+ ''); //сбрасывает защиту
-}});
-
+	
 	bot.on('message', function (msg) {
 	var chatid = msg.chat.id;
 	if (msg.text != '/leavechat') {
@@ -622,10 +614,11 @@
 			bot.sendMessage(chatid, 'Соре, я без админки :c'); })
 }});
 
-	bot.onText(/\/pin/, function (msg, match) {
+	bot.on('message', function (msg) {
 	var chatid = msg.chat.id;
-	var resp = match[1];
-	if (msg.from.id != angelok) {
+	if (msg.text != '/pin') {
+		console.log;
+	} else if (msg.from.id != angelok) {
 		bot.sendSticker(chatid, 'CAADAgADwQMAAtQlfAnWSOPgAs6UbwI', {reply_to_message_id : msg.message_id});
 	} else {
 		console.log ('[I] ' + 'Reply to the message from ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
