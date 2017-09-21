@@ -18,6 +18,7 @@
 	var randTextFour = fourList[Math.floor(Math.random() * fourList.length)];
 	var randTextFive = fiveList[Math.floor(Math.random() * fiveList.length)];
 	var randUser = users[Math.floor(Math.random() * users.length)];
+	var isSpin = false;
 	var date = new Date();
 	var d = date.getDate();
 	if (d < 10) d = '0' + d;
@@ -31,12 +32,17 @@
 	} else if (d == exportingvariables.day) {
 		bot.sendMessage(chatid, 'По результатам розыгрыша, <b>бульба дня</b> сегодня ты — ' + exportingvariables.bulba, {parse_mode : 'HTML'});
 		console.log ('[I] ' + 'Reply to the message from ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+	} else if (isSpin == true) {
+		bot.sendMessage(chatid, 'По результатам розыгрыша, <b>бульба дня</b> сегодня ты — ' + exportingvariables.bulba, {parse_mode : 'HTML'});
+		console.log ('[I] ' + 'Reply to the message from ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else {
 		console.log ('[I] BOTD has been launched by ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+		eval(fs.readFileSync('src/protect.js')+ ''); //активирует защиту
 		setTimeout(function() { bot.sendMessage(chatid, randTextOne) ; }, 100);
 		setTimeout(function() { bot.sendMessage(chatid, randTextTwo) ; }, 2000);
 		setTimeout(function() { bot.sendSticker(chatid, randTextThree) ; }, 5000);
 		setTimeout(function() { bot.sendMessage(chatid, randTextFour) ; }, 7300);
 		setTimeout(function() { bot.sendMessage(chatid, randTextFive + '@' + randUser) ; }, 9500);
-		setTimeout(function() { fs.writeFile('src/exportingvariables.js', 'var date = new Date();\nvar d = date.getDate();\nif (d < 10) d = \'0\' + d\nmodule.exports.day = ' + d + ';' + '\nmodule.exports.bulba = ' + '\'' + '<b>' + '@' + randUser + '</b>' + '\'' + ';'); }, 9600); //заносит день и бульбу
+		setTimeout(function() { eval(fs.readFileSync('src/resetgame.js')+ ''); }, 9600); //сбрасывает защиту
+		setTimeout(function() { fs.writeFile('src/exportingvariables.js', 'var date = new Date();\nvar d = date.getDate();\nif (d < 10) d = \'0\' + d\nmodule.exports.day = ' + d + ';' + '\nmodule.exports.bulba = ' + '\'' + '<b>' + '@' + randUser + '</b>' + '\'' + ';'); }, 9700); //заносит день и бульбу
 };
