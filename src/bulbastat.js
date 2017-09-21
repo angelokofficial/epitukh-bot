@@ -4,7 +4,6 @@
 	var chatid = msg.chat.id;
 //	var ipc = -1001133868291; //ed
 	var ipc = -1001102571478; //ipc
-
 	if (chatid != ipc) {
 		bot.sendSticker(chatid, 'CAADAgADwQMAAtQlfAnWSOPgAs6UbwI', {reply_to_message_id : msg.message_id});
 	} else {
