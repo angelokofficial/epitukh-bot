@@ -12,7 +12,7 @@
 	var bot = new TelegramBot(token, {polling: true});
 	let key = ''; //апи ключ вашего проекта в Google Cloud Platform
 	let cx = ''; //айди вашей поисковой системы в Google Cloud Platform
-	
+		
 	var date = new Date();
 	var d = date.getDate();
 	if (d < 10) d = '0' + d;
@@ -87,11 +87,9 @@
 		console.log ('[I] ' + 'Reply to the message from ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 }});
 
-//бульба дня
 	bot.on('message', function (msg) {
 	if (msg.text == '/bulba@epitukh_bot') {
-	eval(fs.readFileSync('src/bulba.js')+ ''); //запускает бульбу
-	eval(fs.readFileSync('src/protect.js')+ ''); //проверяет или активирует защиту
+	eval(fs.readFileSync('src/bulba.js')+ '');
 }});
 
 	bot.on('message', function (msg) {
