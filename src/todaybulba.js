@@ -1,1 +1,1 @@
-module.exports.bulba = '@fuckussr';
+module.exports.bulba = '<b>@unknwn404</b>';
