@@ -1,3 +1,7 @@
+## EPitukh Bot
+#### A telegram bot specially created for [IP chat](https://t.me/vk2pda) in Telegram
+![pic](https://img.shields.io/badge/status-stable-brightgreen.svg) ![pic](https://img.shields.io/badge/bot-in%20development-lightgrey.svg) ![pic](https://img.shields.io/cocoapods/l/AFNetworking.svg)
+
 ##### Installation and startup
 1. Install Node.js
 1. Install all libraries which are listed below
@@ -13,6 +17,3 @@
 ##### Errors
 1. `node-dev: not found` run: `npm install -g node-dev`
 2. `Error: EFATAL: Telegram Bot Token not provided!` insert your token from [@botfather](t.me/botfather) in the files
-
-##### Contact with me (Q/A) (only English/Russian)
-1. [Telegram](https://www.t.me/angelokofficial)
