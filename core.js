@@ -6,12 +6,13 @@
 	var TelegramBot = require('node-telegram-bot-api');
 	var replace = require('replace');
 	var fs = require('fs');
+	var getKeys = require('./values/auth');
 	console.log('\nHello World! I\'m EPitukh!\n');
 
-	var token = ''; //токен вашего бота
+	var token = getKeys.token;
 	var bot = new TelegramBot(token, {polling: true});
-	let key = ''; //апи ключ вашего проекта в Google Cloud Platform
-	let cx = ''; //айди вашей поисковой системы в Google Cloud Platform
+	let key = getKeys.key;
+	let cx = getKeys.cx;
 			
 	var date = new Date();
 	var d = date.getDate();
@@ -26,7 +27,7 @@
 
 	bot.on('message', function (msg) {
 	if (msg.text == '/bulbastat@epitukh_bot') {
-	eval(fs.readFileSync('src/bulbastat.js')+ ''); //скидывает стату
+	eval(fs.readFileSync('bulba/bulbastat.js')+ ''); //скидывает стату
 }});
 	
 	bot.onText(/\/g (.*)/i, (msg, form) => {
@@ -89,7 +90,7 @@
 
 	bot.on('message', function (msg) {
 	if (msg.text == '/bulba@epitukh_bot') {
-	eval(fs.readFileSync('src/bulba.js')+ '');
+	eval(fs.readFileSync('bulba/bulba.js')+ '');
 }});
 
 	bot.on('message', function (msg) {
