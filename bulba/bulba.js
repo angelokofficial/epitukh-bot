@@ -5,7 +5,7 @@
 	var fs = require('fs');
 	var exportingvariables = require('./bulba/exportingvariables');
 	var chatid = msg.chat.id;
-	var users = ['angelokofficial', 'gershik', 'EgoruOff', 'fuckussr', 'amxlosted217', 'KosBeg', 'OctoNezd', 'WPSTUDI0', 'MyDearEvr', 'zhalka', 'VictorDir', 'unknwn404', 'Leckk', 'Lyubimych', 'reloadingfoxofficial', 'Psixoz_Yeah', 'spaaaaacefan', 'Infernituum', 'FandrlessOfficial', 'igoose', 'SycheKit', 'GlitchF', 'Sominemo'];
+	var users = ['angelokofficial', 'gershik', 'EgoruOff', 'fuckussr', 'I_am_the_fox', 'KosBeg', 'OctoNezd', 'WPSTUDI0', 'MyDearEvr', 'zhalka', 'VictorDir', 'unknwn404', 'Leckk', 'Lyubimych', 'reloadingfoxofficial', 'Psixoz_Yeah', 'spaaaaacefan', 'Infernituum', 'FandrlessOfficial', 'igoose', 'SycheKit', 'GlitchF', 'Sominemo', 'GooseMoos', 'svitty177', 'kovirolik', 'plkvich691'];
 //	var ipc = -1001133868291; //ed
 	var ipc = -1001102571478; //ipc
 	var oneList = ['<b>Бульба дня</b> запущена! А значит, что сегодня на ужин пюрешка!', 'Трактор выехал! Мешки с <b>бульбой</b> украдены...' , 'Выезжаю в огород сажать бульбу...', 'Готовимся ко вкусным драникам...', 'О нет! Бегите глупцы! <b>Бульба дня</b> запущена.', '<i>Системы повреждены... Кто-то решил приготовить бульбу...</i>', '<code>### RUNNING bulba.js</code>', '<i>Запускаем модули и поднимаем нейросети бульбы...</i>'];
@@ -34,8 +34,7 @@
 		bot.sendMessage(chatid, 'По результатам розыгрыша, <b>бульба дня</b> сегодня ты — ' + exportingvariables.bulba, {parse_mode : 'HTML'});
 		console.log ('[I] ' + 'Reply to the message from ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (isSpin == true) {
-		bot.sendMessage(chatid, 'По результатам розыгрыша, <b>бульба дня</b> сегодня ты — ' + exportingvariables.bulba, {parse_mode : 'HTML'});
-		console.log ('[I] ' + 'Reply to the message from ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
+		console.log;
 	} else {
 		console.log ('[I] BOTD has been launched by ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 		eval(fs.readFileSync('bulba/protect.js')+ ''); //активирует защиту
