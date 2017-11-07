@@ -5,8 +5,8 @@
 #### Installation and startup
 1. Install Node.js
 1. Install all libraries which are listed below
-1. Insert authorization keys in `values/auth.js` file
-1. Use `node-dev /path/to/the/bot/core.js` command for start the bot.
+1. Insert the authorization keys in `values/auth.js` file
+1. Use the `node-dev /path/to/the/bot/core.js` command to start a bot.
 
 #### Libraries
 1. [node-telegram-bot-api](https://www.npmjs.com/package/node-telegram-bot-api)
