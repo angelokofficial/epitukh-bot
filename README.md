@@ -15,4 +15,4 @@
 
 #### Errors
 1. `node-dev: not found` run: `npm install -g node-dev`
-2. `Error: EFATAL: Telegram Bot Token not provided!` insert your token from [@botfather](t.me/botfather) in the files
+2. `Error: EFATAL: Telegram Bot Token not provided!` insert your token from [@botfather](t.me/botfather) in the `auth.js` file
