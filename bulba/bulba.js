@@ -3,9 +3,9 @@
 	var token = getKeys.token;
 	var bot = new TelegramBot(token, {polling: false});
 	var fs = require('fs');
-	var exportingvariables = require('./bulba/exportingvariables');
+	var bulbavars = require('./values/bulbavars');
 	var chatid = msg.chat.id;
-	var users = ['angelokofficial', 'gershik', 'EgoruOff', 'fuckussr', 'I_am_the_fox', 'KosBeg', 'OctoNezd', 'WPSTUDI0', 'MyDearEvr', 'zhalka', 'VictorDir', 'unknwn404', 'Leckk', 'Lyubimych', 'reloadingfoxofficial', 'Psixoz_Yeah', 'spaaaaacefan', 'Infernituum', 'FandrlessOfficial', 'igoose', 'SycheKit', 'GlitchF', 'Sominemo', 'GooseMoos', 'svitty177', 'kovirolik', 'plkvich691'];
+	var users = ['angelokofficial', 'gershik', 'EgoruOff', 'fuckussr', 'KosBeg', 'OctoNezd', 'WPSTUDI0', 'MyDearEvr', 'zhalka', 'VictorDir', 'unknwn404', 'Leckk', 'Lyubimych', 'reloadingfoxofficial', 'Psixoz_Yeah', 'spaaaaacefan', 'Infernituum', 'Kekun', 'igoose', 'SycheKit', 'GlitchF', 'Sominemo', 'GooseMoos', 'svitty177', 'kovirolik', 'plkvich691'];
 //	var ipc = -1001133868291; //ed
 	var ipc = -1001102571478; //ipc
 	var oneList = ['<b>Бульба дня</b> запущена! А значит, что сегодня на ужин пюрешка!', 'Трактор выехал! Мешки с <b>бульбой</b> украдены...' , 'Выезжаю в огород сажать бульбу...', 'Готовимся ко вкусным драникам...', 'О нет! Бегите глупцы! <b>Бульба дня</b> запущена.', '<i>Системы повреждены... Кто-то решил приготовить бульбу...</i>', '<code>### RUNNING bulba.js</code>', '<i>Запускаем модули и поднимаем нейросети бульбы...</i>'];
@@ -30,8 +30,8 @@
 		console.log ('[I] ' + 'Reply to the message from ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (msg.text != '/bulba@epitukh_bot') {
 		console.log;
-	} else if (d == exportingvariables.day) {
-		bot.sendMessage(chatid, 'По результатам розыгрыша, <b>бульба дня</b> сегодня ты — ' + exportingvariables.bulba, {parse_mode : 'HTML'});
+	} else if (d == bulbavars.day) {
+		bot.sendMessage(chatid, 'По результатам розыгрыша, <b>бульба дня</b> сегодня ты — ' + bulbavars.bulba, {parse_mode : 'HTML'});
 		console.log ('[I] ' + 'Reply to the message from ' + '@' + msg.from.username + ' ' + '(' + msg.from.id + ')');
 	} else if (isSpin == true) {
 		console.log;
@@ -44,5 +44,5 @@
 		setTimeout(function() { bot.sendMessage(chatid, randTextFour, {parse_mode : 'HTML'}); }, 7300);
 		setTimeout(function() { bot.sendMessage(chatid, randTextFive + '@' + randUser, {parse_mode : 'HTML'}); }, 9500);
 		setTimeout(function() { eval(fs.readFileSync('bulba/resetgame.js')+ ''); }, 9600); //сбрасывает защиту
-		setTimeout(function() { fs.writeFile('bulba/exportingvariables.js', 'var date = new Date();\nvar d = date.getDate();\nif (d < 10) d = \'0\' + d\nmodule.exports.day = ' + d + ';' + '\nmodule.exports.bulba = ' + '\'' + '<b>' + '@' + randUser + '</b>' + '\'' + ';'); }, 9700); //заносит день и бульбу
+		setTimeout(function() { fs.writeFile('bulba/bulbavars.js', 'var date = new Date();\nvar d = date.getDate();\nif (d < 10) d = \'0\' + d\nmodule.exports.day = ' + d + ';' + '\nmodule.exports.bulba = ' + '\'' + '<b>' + '@' + randUser + '</b>' + '\'' + ';'); }, 9700); //заносит день и бульбу
 };
