@@ -1,5 +1,5 @@
 ## EPitukh Bot
-#### A telegram bot which specially created for [IP chat](https://t.me/vk2pda) in Telegram
+#### A telegram bot which specially created for IP chat in Telegram
 ![pic](https://img.shields.io/badge/status-discontinued-red.svg) [![pic](https://img.shields.io/cocoapods/l/AFNetworking.svg)](https://github.com/angelokofficial/telegram-bots/blob/epitukh/LICENSE)
 
 #### Installation and startup
