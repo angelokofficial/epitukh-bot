@@ -4,15 +4,11 @@
 
 #### Installation and startup
 1. Install Node.js
-1. Install all libraries which are listed below
+1. Install all libraries which listed below
 1. Insert the authorization keys in `values/auth.js` file
-1. Use the `node-dev /path/to/the/bot/core.js` command to start a bot.
+1. Use `node-dev /path/to/the/bot/core.js` command to start the bot.
 
 #### Libraries
 1. [node-telegram-bot-api](https://www.npmjs.com/package/node-telegram-bot-api)
 2. [replace](https://www.npmjs.com/package/replace)
 3. [node-dev](https://www.npmjs.com/package/node-dev)
-
-#### Errors
-1. `node-dev: not found` run: `npm install -g node-dev`
-2. `Error: EFATAL: Telegram Bot Token not provided!` insert your token from [@botfather](t.me/botfather) in the `auth.js` file
